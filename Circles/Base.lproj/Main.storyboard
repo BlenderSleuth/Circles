@@ -216,7 +216,7 @@
         <!--Circles Navigation Controller-->
         <scene sceneID="LRG-uz-Bsd">
             <objects>
-                <navigationController navigationBarHidden="YES" id="d0s-VM-aCy" customClass="CirclesNavigationController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CirclesNavigationController" navigationBarHidden="YES" id="d0s-VM-aCy" customClass="CirclesNavigationController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1A9-Y8-dUw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
