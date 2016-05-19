@@ -13,6 +13,7 @@
 		382A77DC1CE862A7008EC60F /* LoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DB1CE862A7008EC60F /* LoseViewController.swift */; };
 		382A77DE1CE862B0008EC60F /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DD1CE862B0008EC60F /* WinViewController.swift */; };
 		382A77E01CE86310008EC60F /* CirclesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */; };
+		38670FA41CEDB1E500D5F16C /* LevelSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA31CEDB1E500D5F16C /* LevelSelectView.swift */; };
 		38E7517E1CE830C50087682E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7517D1CE830C50087682E /* AppDelegate.swift */; };
 		38E751801CE830C60087682E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38E7517F1CE830C60087682E /* GameScene.sks */; };
 		38E751821CE830C60087682E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751811CE830C60087682E /* GameScene.swift */; };
@@ -31,6 +32,7 @@
 		382A77DB1CE862A7008EC60F /* LoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoseViewController.swift; sourceTree = "<group>"; };
 		382A77DD1CE862B0008EC60F /* WinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclesNavigationController.swift; sourceTree = "<group>"; };
+		38670FA31CEDB1E500D5F16C /* LevelSelectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectView.swift; sourceTree = "<group>"; };
 		38E7517A1CE830C50087682E /* Circles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E7517D1CE830C50087682E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E7517F1CE830C60087682E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				38E751851CE830C60087682E /* Main.storyboard */,
 				38E7518A1CE830C60087682E /* LaunchScreen.storyboard */,
 				38E7518D1CE830C60087682E /* Info.plist */,
+				38670FA31CEDB1E500D5F16C /* LevelSelectView.swift */,
 			);
 			path = Circles;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				382A77D81CE86253008EC60F /* MainMenuViewController.swift in Sources */,
 				382A77DC1CE862A7008EC60F /* LoseViewController.swift in Sources */,
 				38E751941CE846390087682E /* TowerPickerNode.swift in Sources */,
+				38670FA41CEDB1E500D5F16C /* LevelSelectView.swift in Sources */,
 				38E751841CE830C60087682E /* GameViewController.swift in Sources */,
 				38E7517E1CE830C50087682E /* AppDelegate.swift in Sources */,
 				382A77DE1CE862B0008EC60F /* WinViewController.swift in Sources */,

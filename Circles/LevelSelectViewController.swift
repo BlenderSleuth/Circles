@@ -9,7 +9,6 @@
 import UIKit
 
 class LevelSelectViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,5 +21,4 @@ class LevelSelectViewController: UIViewController {
     @IBAction func backButtonPressed(sender: AnyObject) {
         navigationController?.popToRootViewControllerAnimated(true)
     }
-
 }
