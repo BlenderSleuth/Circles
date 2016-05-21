@@ -12,21 +12,17 @@ class LevelSelectViewController: UIViewController {
     
     var lastPanPoint: CGPoint!
     
-    @IBOutlet weak var levelSelectView: LevelSelectView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func viewPanned(sender: UIPanGestureRecognizer) {
         if lastPanPoint != nil {
-            let point = sender.translationInView(levelSelectView)
+            let point = sender.translationInView(self.view)
             let velocity = point - lastPanPoint
             let direction = velocity.x <= 0 ? -1 : 1
-            levelSelectView.pan(direction)
-            
         }
-        lastPanPoint = sender.translationInView(levelSelectView)
+        lastPanPoint = sender.translationInView(self.view)
     }
     @IBAction func backButtonPressed(sender: AnyObject) {
         navigationController?.popToRootViewControllerAnimated(true)

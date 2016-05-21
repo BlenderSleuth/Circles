@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cvy-y6-pP1">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -138,51 +139,46 @@
                                     <action selector="backButtonPressed:" destination="cvy-y6-pP1" eventType="touchUpInside" id="ZJd-zM-Y2L"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vp9-yc-Se2" customClass="LevelSelectView" customModule="Circles" customModuleProvider="target">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6i-jK-kmX">
                                 <rect key="frame" x="0.0" y="136" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.50222468379999996" green="0.12772518399999999" blue="0.58570474390000005" alpha="1" colorSpace="deviceRGB"/>
-                                <gestureRecognizers/>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="XNa-iu-pWl" appends="YES" id="x1E-D6-DZD"/>
+                                    <segue destination="d1d-JK-FdC" kind="embed" id="Hnl-m1-BkI"/>
                                 </connections>
-                            </view>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="b6i-jK-kmX" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="6Cl-Lv-Ajo"/>
+                            <constraint firstItem="b6i-jK-kmX" firstAttribute="centerX" secondItem="L0x-Do-FnG" secondAttribute="centerX" id="6uf-wy-voC"/>
+                            <constraint firstItem="b6i-jK-kmX" firstAttribute="top" secondItem="fAx-9y-2ZC" secondAttribute="bottom" constant="8" id="AJx-T6-kwD"/>
                             <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="s20-gR-UQm" secondAttribute="bottom" id="F5F-bi-QfI"/>
+                            <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="b6i-jK-kmX" secondAttribute="bottom" constant="64" id="FB1-Jz-Qyt"/>
                             <constraint firstItem="s20-gR-UQm" firstAttribute="top" secondItem="L0x-Do-FnG" secondAttribute="top" id="GSv-Yv-cgR"/>
                             <constraint firstItem="fAx-9y-2ZC" firstAttribute="top" secondItem="L0x-Do-FnG" secondAttribute="top" id="Jl4-ik-WfE"/>
+                            <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="b6i-jK-kmX" secondAttribute="bottom" constant="20" id="KTX-7N-xje"/>
                             <constraint firstAttribute="trailing" secondItem="s20-gR-UQm" secondAttribute="trailing" id="UNo-cu-7Jb"/>
                             <constraint firstItem="Pej-SH-hfN" firstAttribute="top" secondItem="kNN-2G-sUv" secondAttribute="bottom" constant="20" id="Xg1-WM-62H"/>
-                            <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="Vp9-yc-Se2" secondAttribute="bottom" constant="20" id="YXO-Rd-Cwq"/>
-                            <constraint firstAttribute="trailing" secondItem="Vp9-yc-Se2" secondAttribute="trailing" id="ZVa-yN-YZF"/>
-                            <constraint firstItem="Vp9-yc-Se2" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="ZXx-z9-oq7"/>
+                            <constraint firstAttribute="trailing" secondItem="b6i-jK-kmX" secondAttribute="trailing" id="cFv-v3-0e2"/>
                             <constraint firstItem="Pej-SH-hfN" firstAttribute="centerX" secondItem="L0x-Do-FnG" secondAttribute="centerX" id="eiZ-rq-TzC"/>
-                            <constraint firstItem="Vp9-yc-Se2" firstAttribute="top" secondItem="fAx-9y-2ZC" secondAttribute="bottom" constant="8" id="gXM-a0-ca2"/>
-                            <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="Vp9-yc-Se2" secondAttribute="bottom" constant="64" id="k4Z-5R-gZB"/>
                             <constraint firstItem="Pej-SH-hfN" firstAttribute="top" secondItem="kNN-2G-sUv" secondAttribute="bottom" constant="35" id="ofg-ZE-acl"/>
                             <constraint firstItem="fAx-9y-2ZC" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="pR1-jf-Yf8"/>
                             <constraint firstItem="s20-gR-UQm" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="qEz-4d-FCh"/>
-                            <constraint firstItem="Vp9-yc-Se2" firstAttribute="centerX" secondItem="L0x-Do-FnG" secondAttribute="centerX" id="xVe-Rn-QbR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Xg1-WM-62H"/>
-                                <exclude reference="YXO-Rd-Cwq"/>
+                                <exclude reference="KTX-7N-xje"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <include reference="Xg1-WM-62H"/>
                                 <exclude reference="ofg-ZE-acl"/>
-                                <include reference="YXO-Rd-Cwq"/>
-                                <exclude reference="k4Z-5R-gZB"/>
+                                <exclude reference="FB1-Jz-Qyt"/>
+                                <include reference="KTX-7N-xje"/>
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outlet property="levelSelectView" destination="Vp9-yc-Se2" id="5YQ-Jt-Wah"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ef-x7-Gg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="XNa-iu-pWl">
@@ -275,6 +271,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7a-Rh-Xmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1538" y="349"/>
+        </scene>
+        <!--Level Selecter View Controller-->
+        <scene sceneID="JMv-6b-mld">
+            <objects>
+                <viewController id="d1d-JK-FdC" customClass="LevelSelecterViewController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KDG-S6-K7K"/>
+                        <viewControllerLayoutGuide type="bottom" id="MFU-vg-UI8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RWA-92-DMy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DX1-Is-g4f" customClass="SliderView" customModule="Circles" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="sliderView" destination="DX1-Is-g4f" id="eg4-Bw-5WY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-lQ-it4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="1008"/>
         </scene>
     </scenes>
     <resources>
