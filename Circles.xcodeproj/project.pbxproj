@@ -14,7 +14,7 @@
 		382A77DE1CE862B0008EC60F /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DD1CE862B0008EC60F /* WinViewController.swift */; };
 		382A77E01CE86310008EC60F /* CirclesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */; };
 		38496A5F1CEDC3F2001C11FE /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38496A5E1CEDC3F2001C11FE /* Level.swift */; };
-		38496A611CEDDDBD001C11FE /* LevelSelecterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38496A601CEDDDBD001C11FE /* LevelSelecterViewController.swift */; };
+		38496A611CEDDDBD001C11FE /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38496A601CEDDDBD001C11FE /* SliderViewController.swift */; };
 		38670FB21CEDBF8400D5F16C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA61CEDBF8300D5F16C /* CGFloat+Extensions.swift */; };
 		38670FB31CEDBF8400D5F16C /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA71CEDBF8300D5F16C /* CGPoint+Extensions.swift */; };
 		38670FB41CEDBF8400D5F16C /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA81CEDBF8300D5F16C /* CGVector+Extensions.swift */; };
@@ -27,7 +27,6 @@
 		38670FBB1CEDBF8400D5F16C /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FAF1CEDBF8400D5F16C /* SKTEffects.swift */; };
 		38670FBC1CEDBF8400D5F16C /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FB01CEDBF8400D5F16C /* SKTTimingFunctions.swift */; };
 		38670FBD1CEDBF8400D5F16C /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FB11CEDBF8400D5F16C /* Vector3.swift */; };
-		3889E54F1CF0188B009D8F04 /* LevelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3889E54E1CF0188B009D8F04 /* LevelView.xib */; };
 		3889E5511CF019FF009D8F04 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889E5501CF019FF009D8F04 /* LevelView.swift */; };
 		38E7517E1CE830C50087682E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7517D1CE830C50087682E /* AppDelegate.swift */; };
 		38E751801CE830C60087682E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 38E7517F1CE830C60087682E /* GameScene.sks */; };
@@ -48,7 +47,7 @@
 		382A77DD1CE862B0008EC60F /* WinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclesNavigationController.swift; sourceTree = "<group>"; };
 		38496A5E1CEDC3F2001C11FE /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
-		38496A601CEDDDBD001C11FE /* LevelSelecterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelecterViewController.swift; sourceTree = "<group>"; };
+		38496A601CEDDDBD001C11FE /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		38670FA61CEDBF8300D5F16C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		38670FA71CEDBF8300D5F16C /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		38670FA81CEDBF8300D5F16C /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -61,7 +60,6 @@
 		38670FAF1CEDBF8400D5F16C /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		38670FB01CEDBF8400D5F16C /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		38670FB11CEDBF8400D5F16C /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
-		3889E54E1CF0188B009D8F04 /* LevelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LevelView.xib; sourceTree = "<group>"; };
 		3889E5501CF019FF009D8F04 /* LevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		38E7517A1CE830C50087682E /* Circles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E7517D1CE830C50087682E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,9 +102,8 @@
 				382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */,
 				382A77D71CE86253008EC60F /* MainMenuViewController.swift */,
 				382A77D91CE86287008EC60F /* LevelSelectViewController.swift */,
-				38496A601CEDDDBD001C11FE /* LevelSelecterViewController.swift */,
+				38496A601CEDDDBD001C11FE /* SliderViewController.swift */,
 				3889E5501CF019FF009D8F04 /* LevelView.swift */,
-				3889E54E1CF0188B009D8F04 /* LevelView.xib */,
 				38496A5E1CEDC3F2001C11FE /* Level.swift */,
 				38E751831CE830C60087682E /* GameViewController.swift */,
 				382A77DB1CE862A7008EC60F /* LoseViewController.swift */,
@@ -237,7 +234,6 @@
 				382A77D41CE84E1E008EC60F /* UpgradePickerNode.sks in Resources */,
 				38E7518C1CE830C60087682E /* LaunchScreen.storyboard in Resources */,
 				38E751891CE830C60087682E /* Assets.xcassets in Resources */,
-				3889E54F1CF0188B009D8F04 /* LevelView.xib in Resources */,
 				38E751961CE8474E0087682E /* TowerPickerNode.sks in Resources */,
 				38E751871CE830C60087682E /* Main.storyboard in Resources */,
 			);
@@ -256,7 +252,7 @@
 				38670FB21CEDBF8400D5F16C /* CGFloat+Extensions.swift in Sources */,
 				38E751821CE830C60087682E /* GameScene.swift in Sources */,
 				382A77DA1CE86287008EC60F /* LevelSelectViewController.swift in Sources */,
-				38496A611CEDDDBD001C11FE /* LevelSelecterViewController.swift in Sources */,
+				38496A611CEDDDBD001C11FE /* SliderViewController.swift in Sources */,
 				382A77D81CE86253008EC60F /* MainMenuViewController.swift in Sources */,
 				382A77DC1CE862A7008EC60F /* LoseViewController.swift in Sources */,
 				38496A5F1CEDC3F2001C11FE /* Level.swift in Sources */,

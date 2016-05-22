@@ -104,6 +104,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s20-gR-UQm">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="1" green="0.22954325092087668" blue="0.16562683725179572" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pej-SH-hfN">
                                 <rect key="frame" x="153" y="55" width="295" height="55"/>
@@ -181,11 +182,6 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ef-x7-Gg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="XNa-iu-pWl">
-                    <connections>
-                        <action selector="viewPanned:" destination="cvy-y6-pP1" id="9uG-Uf-vB4"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-93" y="348"/>
         </scene>
@@ -207,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="606" y="349"/>
         </scene>
-        <!--LoseViewController-->
+        <!--Lose View Controller-->
         <scene sceneID="eIx-SH-vOz">
             <objects>
-                <viewController storyboardIdentifier="LoseViewController" title="LoseViewController" id="iCf-sS-ykm" customClass="LoseViewController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoseViewController" id="iCf-sS-ykm" customClass="LoseViewController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Ch-P2-hWq"/>
                         <viewControllerLayoutGuide type="bottom" id="tbc-y6-Tio"/>
@@ -272,10 +268,10 @@
             </objects>
             <point key="canvasLocation" x="-1538" y="349"/>
         </scene>
-        <!--Level Selecter View Controller-->
+        <!--Slider View Controller-->
         <scene sceneID="JMv-6b-mld">
             <objects>
-                <viewController id="d1d-JK-FdC" customClass="LevelSelecterViewController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d1d-JK-FdC" customClass="SliderViewController" customModule="Circles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KDG-S6-K7K"/>
                         <viewControllerLayoutGuide type="bottom" id="MFU-vg-UI8"/>
@@ -286,7 +282,11 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DX1-Is-g4f" customClass="SliderView" customModule="Circles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ihY-A4-RA2" appends="YES" id="28b-oF-fkD"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
@@ -296,6 +296,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-lQ-it4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ihY-A4-RA2">
+                    <connections>
+                        <action selector="didPan:" destination="d1d-JK-FdC" id="6d3-IX-3Q5"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6" y="1008"/>
         </scene>
