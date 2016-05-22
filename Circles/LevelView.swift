@@ -14,6 +14,8 @@ class LevelView: UIView {
     let levelLabel: UILabel
     let level: Level
     
+    var delegate: LevelTapProtocol?
+    
     override func didMoveToSuperview() {
         
     }
@@ -22,10 +24,13 @@ class LevelView: UIView {
         self.level = level
         levelImage = UIImageView()
         levelLabel = UILabel()
-
         super.init(frame: frame)
         
         backgroundColor = .blackColor()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LevelView.didTap(_:)))
+        
+        addGestureRecognizer(tapGesture)
         
         let margin = bounds.width / 80
         let topMargin = bounds.height / 5
@@ -56,7 +61,19 @@ class LevelView: UIView {
         addSubview(levelLabel)
     }
     
+    func didTap(tapRecognizer: UITapGestureRecognizer) {
+        if tapRecognizer.state == .Ended {
+            if delegate != nil {
+                delegate?.levelTapped(level)
+            }
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+protocol LevelTapProtocol {
+    func levelTapped(level: Level)
 }

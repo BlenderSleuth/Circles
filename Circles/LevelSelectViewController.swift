@@ -19,12 +19,4 @@ class LevelSelectViewController: UIViewController {
     @IBAction func backButtonPressed(sender: AnyObject) {
         navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-    /*
-     @IBAction func playButtonPressed(sender: AnyObject) {
-     if let WinViewController = storyboard?.instantiateViewControllerWithIdentifier("WinViewController") as? WinViewController {
-     navigationController?.pushViewController(WinViewController, animated: true)
-     }
-     }
-     */
 }

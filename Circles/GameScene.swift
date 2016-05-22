@@ -9,7 +9,11 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    var level: Level!
+    
     override func didMoveToView(view: SKView) {
-        
+        let label = SKLabelNode(text: level.name)
+        label.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+        addChild(label)
     }
 }

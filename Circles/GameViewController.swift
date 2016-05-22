@@ -11,6 +11,8 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var level: Level!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +22,7 @@ class GameViewController: UIViewController {
             skView.showsNodeCount = true
             skView.ignoresSiblingOrder = true
             scene.scaleMode = .AspectFill
+            scene.level = level
             
             skView.presentScene(scene)
         }
