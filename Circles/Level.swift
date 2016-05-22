@@ -28,9 +28,10 @@ struct Levels {
     let level3 = Level(name: "Level 3", description: "description",          imageName: "Level1")
     let level4 = Level(name: "Level 4", description: "description",          imageName: "Level1")
     let level5 = Level(name: "Level 5", description: "description",          imageName: "Level1")
+    let level6 = Level(name: "Level 6", description: "description",          imageName: "Level1")
     let levels: [Level]
     
     init() {
-       levels = [level1, level2, level3, level4, level5]
+       levels = [level1, level2, level3, level4, level5, level6]
     }
 }

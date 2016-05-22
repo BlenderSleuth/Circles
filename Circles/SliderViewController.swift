@@ -21,15 +21,31 @@ class SliderViewController: UIViewController {
     }
     @IBAction func didPan(sender: UIPanGestureRecognizer) {
         if lastPanPointX != nil {
-            let point = sender.translationInView(view).x
+            let point = sender.translationInView(sender.view).x
             let velocity = point - lastPanPointX
-            if abs(velocity) < 100 {
-                if sliderView.frame.origin.x + velocity <= 0 {
-                    sliderView.frame.origin.x += velocity
-                }
+            if sliderView.frame.origin.x + velocity <= 10 {
+                sliderView.frame.origin.x += velocity
             }
+            sender.setTranslation(CGPointZero, inView: sender.view)
         }
         lastPanPointX = sender.translationInView(view).x
+        
+        if sender.state == .Ended {
+            let velocity = sender.velocityInView(view)
+            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+            let slideMultiplier = magnitude / 200
+            
+            let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
+            
+            var finalPoint = CGPoint(x:sender.view!.center.x + (velocity.x * slideFactor), y:0)
+            
+            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
+            
+            UIView.animateWithDuration(Double(slideFactor * 2), delay: 0,
+                options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.CurveEaseOut.rawValue + UIViewAnimationOptions.AllowUserInteraction.rawValue),
+                animations: {sender.view!.center.x = finalPoint.x },
+                completion: nil)
+        }
     }
 }
 
@@ -44,13 +60,17 @@ class SliderView: UIView {
                 
                 let levelGap = margin * 2
                 
-                let frame = CGRect(x: margin + ((levelGap + width) * CGFloat(level)), y: margin, width: width, height: height)
+                let levelFrame = CGRect(x: margin + ((levelGap + width) * CGFloat(level)), y: margin, width: width, height: height)
                 
-                let levelView = LevelView(frame: frame, level: Levels.sharedInstance.levels[level])
+                let levelView = LevelView(frame: levelFrame, level: Levels.sharedInstance.levels[level])
                 addSubview(levelView)
                 
-                let sliderFrame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: frame.width * CGFloat(Levels.sharedInstance.levels.count), height: bounds.height)
-                self.frame = sliderFrame
+                let sliderFrame = CGRect(x: bounds.origin.x,
+                                         y: bounds.origin.y,
+                                         width: (width + levelGap ) * CGFloat(Levels.sharedInstance.levels.count),
+                                         height: bounds.height)
+                
+                frame = sliderFrame
             }
         }
     }
