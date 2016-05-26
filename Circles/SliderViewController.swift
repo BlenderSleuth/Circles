@@ -8,14 +8,17 @@
 
 import UIKit
 
-class SliderViewController: UIViewController, LevelTapProtocol {
-    @IBOutlet weak var sliderView: SliderView!
+class SliderViewController: UIViewController, LevelTapProtocol, UIScrollViewDelegate {
+    let sliderView = SliderView()
     
+    @IBOutlet weak var scrollView: UIScrollView!
     var lastPanPointX: CGFloat!
     
     override func viewDidLayoutSubviews() {
-        sliderView.frame = view.bounds
+        sliderView.frame = view.frame
+        scrollView.addSubview(sliderView)
         sliderView.setupLevels()
+        scrollView.contentSize = sliderView.frame.size
         
         view.layer.borderWidth = 1
         view.layer.frame = CGRect(x: -1, y: 0, width: view.frame.width + 2, height: view.frame.height)
@@ -31,41 +34,12 @@ class SliderViewController: UIViewController, LevelTapProtocol {
         if let gameViewController = storyboard?.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController {
             parentViewController!.navigationController?.pushViewController(gameViewController, animated: true)
             gameViewController.level = level
-            print("\(level.name) tapped")
-        }
-    }
-    
-    @IBAction func didPan(panRecognizer: UIPanGestureRecognizer) {
-        if lastPanPointX != nil {
-            let point = panRecognizer.translationInView(panRecognizer.view).x
-            let velocity = point - lastPanPointX
-            if sliderView.frame.origin.x + velocity <= 10 {
-                sliderView.frame.origin.x += velocity
-            }
-            panRecognizer.setTranslation(CGPointZero, inView: panRecognizer.view)
-        }
-        lastPanPointX = panRecognizer.translationInView(view).x
-        
-        if panRecognizer.state == .Ended {
-            let velocity = panRecognizer.velocityInView(view)
-            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-            let slideMultiplier = magnitude / 200
-            
-            let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
-            
-            var finalPoint = CGPoint(x:panRecognizer.view!.center.x + (velocity.x * slideFactor), y:0)
-            
-            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
-            
-            UIView.animateWithDuration(Double(slideFactor * 2), delay: 0,
-                options: UIViewAnimationOptions(rawValue: UIViewAnimationOptions.CurveEaseOut.rawValue + UIViewAnimationOptions.AllowUserInteraction.rawValue),
-                animations: {panRecognizer.view!.center.x = finalPoint.x },
-                completion: nil)
         }
     }
 }
 
 class SliderView: UIView {
+    
     func setupLevels() {
         if let superview = superview {
             //iterate through levels

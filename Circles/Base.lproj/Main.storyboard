@@ -140,7 +140,7 @@
                                     <action selector="backButtonPressed:" destination="cvy-y6-pP1" eventType="touchUpInside" id="ZJd-zM-Y2L"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6i-jK-kmX">
+                            <containerView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6i-jK-kmX">
                                 <rect key="frame" x="0.0" y="136" width="600" height="400"/>
                                 <connections>
                                     <segue destination="d1d-JK-FdC" kind="embed" id="Hnl-m1-BkI"/>
@@ -280,27 +280,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DX1-Is-g4f" customClass="SliderView" customModule="Circles" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-lT-uwv">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ihY-A4-RA2" appends="YES" id="28b-oF-fkD"/>
-                                </connections>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="fQH-lT-uwv" firstAttribute="leading" secondItem="RWA-92-DMy" secondAttribute="leading" id="DtW-0b-hkA"/>
+                            <constraint firstItem="fQH-lT-uwv" firstAttribute="bottom" secondItem="MFU-vg-UI8" secondAttribute="top" id="K9q-Dv-Tcf"/>
+                            <constraint firstItem="fQH-lT-uwv" firstAttribute="top" secondItem="KDG-S6-K7K" secondAttribute="bottom" id="PNX-7N-ytQ"/>
+                            <constraint firstAttribute="trailing" secondItem="fQH-lT-uwv" secondAttribute="trailing" id="a1P-oI-9Wp"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="sliderView" destination="DX1-Is-g4f" id="eg4-Bw-5WY"/>
+                        <outlet property="scrollView" destination="fQH-lT-uwv" id="7A5-Kl-2Zc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml8-lQ-it4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="ihY-A4-RA2">
-                    <connections>
-                        <action selector="didPan:" destination="d1d-JK-FdC" id="6d3-IX-3Q5"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6" y="1008"/>
         </scene>
