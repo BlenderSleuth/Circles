@@ -14,7 +14,7 @@ class LevelView: UIView {
     let levelLabel: UILabel
     let level: Level
     
-    var delegate: LevelTapProtocol?
+    var delegate: LevelTapDelegate?
     
     override func didMoveToSuperview() {
         
@@ -74,6 +74,6 @@ class LevelView: UIView {
     }
 }
 
-protocol LevelTapProtocol {
+protocol LevelTapDelegate {
     func levelTapped(level: Level)
 }

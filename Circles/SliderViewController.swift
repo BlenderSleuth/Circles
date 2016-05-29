@@ -8,17 +8,14 @@
 
 import UIKit
 
-class SliderViewController: UIViewController, LevelTapProtocol, UIScrollViewDelegate {
-    let sliderView = SliderView()
+class SliderViewController: UIViewController, LevelTapDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    var lastPanPointX: CGFloat!
     
-    override func viewDidLayoutSubviews() {
-        sliderView.frame = view.frame
+    override func viewWillLayoutSubviews() {
+        let sliderView = SliderView()
         scrollView.addSubview(sliderView)
-        sliderView.setupLevels()
-        scrollView.contentSize = sliderView.frame.size
+        scrollView.contentSize = sliderView.setupLevels(bounds: view.bounds).size
         
         view.layer.borderWidth = 1
         view.layer.frame = CGRect(x: -1, y: 0, width: view.frame.width + 2, height: view.frame.height)
@@ -40,28 +37,27 @@ class SliderViewController: UIViewController, LevelTapProtocol, UIScrollViewDele
 
 class SliderView: UIView {
     
-    func setupLevels() {
-        if let superview = superview {
-            //iterate through levels
-            for level in 0...Levels.sharedInstance.levels.count - 1{
-                let margin = superview.bounds.width / 100
-                let height = superview.bounds.height - margin*2
-                let width = height / 3 * 2
-                
-                let levelGap = margin * 2
-                
-                let levelFrame = CGRect(x: margin + ((levelGap + width) * CGFloat(level)), y: margin, width: width, height: height)
-                
-                let levelView = LevelView(frame: levelFrame, level: Levels.sharedInstance.levels[level])
-                addSubview(levelView)
-                
-                let sliderFrame = CGRect(x: bounds.origin.x,
-                                         y: bounds.origin.y,
-                                         width: (width + levelGap ) * CGFloat(Levels.sharedInstance.levels.count),
-                                         height: bounds.height)
-                
-                frame = sliderFrame
-            }
+    func setupLevels(bounds bounds: CGRect) -> CGRect {
+        //constants
+        let margin = bounds.width / 100
+        let height = bounds.height - margin * 2
+        let width = height / 3 * 2
+        let levelGap = margin * 2
+        
+        //iterate through levels
+        for level in 0...Levels.sharedInstance.levels.count - 1 {
+            
+            let levelFrame = CGRect(x: margin + ((levelGap + width) * CGFloat(level)), y: margin, width: width, height: height)
+            let levelView = LevelView(frame: levelFrame, level: Levels.sharedInstance.levels[level])
+            addSubview(levelView)
         }
+        
+        let sliderFrame = CGRect(x: bounds.origin.x,
+                                 y: bounds.origin.y,
+                                 width: (width + levelGap ) * CGFloat(Levels.sharedInstance.levels.count),
+                                 height: bounds.height)
+        
+        frame = sliderFrame
+        return sliderFrame
     }
 }

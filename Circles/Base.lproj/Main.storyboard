@@ -102,10 +102,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s20-gR-UQm">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQl-ZR-vmz" customClass="ScrollingImage" customModule="Circles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="1" green="0.22954325092087668" blue="0.16562683725179572" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LEVEL SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pej-SH-hfN">
                                 <rect key="frame" x="153" y="55" width="295" height="55"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="46"/>
@@ -152,18 +152,19 @@
                             <constraint firstItem="b6i-jK-kmX" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="6Cl-Lv-Ajo"/>
                             <constraint firstItem="b6i-jK-kmX" firstAttribute="centerX" secondItem="L0x-Do-FnG" secondAttribute="centerX" id="6uf-wy-voC"/>
                             <constraint firstItem="b6i-jK-kmX" firstAttribute="top" secondItem="fAx-9y-2ZC" secondAttribute="bottom" constant="8" id="AJx-T6-kwD"/>
-                            <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="s20-gR-UQm" secondAttribute="bottom" id="F5F-bi-QfI"/>
                             <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="b6i-jK-kmX" secondAttribute="bottom" constant="64" id="FB1-Jz-Qyt"/>
-                            <constraint firstItem="s20-gR-UQm" firstAttribute="top" secondItem="L0x-Do-FnG" secondAttribute="top" id="GSv-Yv-cgR"/>
                             <constraint firstItem="fAx-9y-2ZC" firstAttribute="top" secondItem="L0x-Do-FnG" secondAttribute="top" id="Jl4-ik-WfE"/>
                             <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="b6i-jK-kmX" secondAttribute="bottom" constant="20" id="KTX-7N-xje"/>
-                            <constraint firstAttribute="trailing" secondItem="s20-gR-UQm" secondAttribute="trailing" id="UNo-cu-7Jb"/>
+                            <constraint firstAttribute="trailing" secondItem="CQl-ZR-vmz" secondAttribute="trailing" id="OQp-o8-ARm"/>
+                            <constraint firstItem="CQl-ZR-vmz" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="Tw5-fp-tLs"/>
                             <constraint firstItem="Pej-SH-hfN" firstAttribute="top" secondItem="kNN-2G-sUv" secondAttribute="bottom" constant="20" id="Xg1-WM-62H"/>
                             <constraint firstAttribute="trailing" secondItem="b6i-jK-kmX" secondAttribute="trailing" id="cFv-v3-0e2"/>
                             <constraint firstItem="Pej-SH-hfN" firstAttribute="centerX" secondItem="L0x-Do-FnG" secondAttribute="centerX" id="eiZ-rq-TzC"/>
+                            <constraint firstItem="CQl-ZR-vmz" firstAttribute="top" secondItem="L0x-Do-FnG" secondAttribute="top" id="kZ4-MJ-TSD"/>
+                            <constraint firstItem="GAe-Lu-iLC" firstAttribute="top" secondItem="CQl-ZR-vmz" secondAttribute="bottom" id="odn-bN-dB5"/>
                             <constraint firstItem="Pej-SH-hfN" firstAttribute="top" secondItem="kNN-2G-sUv" secondAttribute="bottom" constant="35" id="ofg-ZE-acl"/>
                             <constraint firstItem="fAx-9y-2ZC" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="pR1-jf-Yf8"/>
-                            <constraint firstItem="s20-gR-UQm" firstAttribute="leading" secondItem="L0x-Do-FnG" secondAttribute="leading" id="qEz-4d-FCh"/>
+                            <constraint firstItem="CQl-ZR-vmz" firstAttribute="centerY" secondItem="L0x-Do-FnG" secondAttribute="centerY" id="prN-m5-Nse"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -180,6 +181,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="scrollingImage" destination="CQl-ZR-vmz" id="X8M-vA-x1y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ef-x7-Gg6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -280,8 +284,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-lT-uwv">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQH-lT-uwv">
+                                <rect key="frame" x="0.0" y="0.0" width="601" height="400"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
@@ -289,7 +293,7 @@
                             <constraint firstItem="fQH-lT-uwv" firstAttribute="leading" secondItem="RWA-92-DMy" secondAttribute="leading" id="DtW-0b-hkA"/>
                             <constraint firstItem="fQH-lT-uwv" firstAttribute="bottom" secondItem="MFU-vg-UI8" secondAttribute="top" id="K9q-Dv-Tcf"/>
                             <constraint firstItem="fQH-lT-uwv" firstAttribute="top" secondItem="KDG-S6-K7K" secondAttribute="bottom" id="PNX-7N-ytQ"/>
-                            <constraint firstAttribute="trailing" secondItem="fQH-lT-uwv" secondAttribute="trailing" id="a1P-oI-9Wp"/>
+                            <constraint firstAttribute="trailing" secondItem="fQH-lT-uwv" secondAttribute="trailing" constant="-1" id="a1P-oI-9Wp"/>
                         </constraints>
                     </view>
                     <connections>
