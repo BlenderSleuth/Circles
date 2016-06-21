@@ -16,10 +16,6 @@ class LevelView: UIView {
     
     var delegate: LevelTapDelegate?
     
-    override func didMoveToSuperview() {
-        
-    }
-    
     init(frame: CGRect, level: Level) {
         self.level = level
         levelImage = UIImageView()

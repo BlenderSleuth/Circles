@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import GameplayKit
 
 enum Device {
     case iPad
@@ -15,8 +16,12 @@ enum Device {
 
 class GameScene: SKScene {
     let level: Level
-    var mapScene: MapScene!
+    var mapNode: MapNode!
     var device: Device!
+    
+    var entities = [GKEntity]()
+    
+    let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
     
     init(size: CGSize, level: Level) {
         self.level = level
@@ -29,82 +34,63 @@ class GameScene: SKScene {
     }
     
     override func didMoveToView(view: SKView) {
-        setDevice()
-        setupMapScene()
-        loadLayout()
-        
-        let label = SKLabelNode(text: level.name)
-        label.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
-        addChild(label)
-        
-        //let backgroundNode = childNodeWithName("mapBackground") as! SKSpriteNode
-        //backgroundNode.texture = SKTexture(image: level.mapImage)
+        setupMapNode()
+        startWave()
     }
     
-    func setDevice() {
+    func setupMapNode() {
+        mapNode = MapNode(level: level, size: size)
+        addChild(mapNode)
+    }
+    
+    func createCircleAtPoint(type: CircleType, position: CGPoint) {
+        let spriteComponent = SpriteComponent(type: type, position: position)
+        
+        let entity = CircleEntity(spriteComponent: spriteComponent, circleType: type, path: mapNode.map.path)
+        entities.append(entity)
+        
+        spriteSystem.addComponentWithEntity(entity)
+        
+        mapNode.circleLayer.addChild(entity.spriteComponent.node)
+    }
+    
+    func startWave() {
+        let wave = level.waves[0]
+        for index in 0..<wave.indexCount {
+            for _ in 0..<wave[index] {
+                let type = CircleType(rawValue: index)!
+                createCircleAtPoint(type, position: CGPoint(x: 300, y: 300))
+            }
+        }
+    }
+    
+    func setCircleOnPath(circle: CircleEntity) {
+        circle.setCircleOnPath(mapNode.map.path)
+    }
+    
+    /*func setDevice() {
         if UIDevice.currentDevice().model == "iPhone" {
             device = .iPhone
-            print("iPad")
+            print("iPhone")
         } else {
             device = .iPad
-            print("iPhone")
+            print("iPad")
         }
-    }
-    
-    func setupMapScene() {
-        mapScene = MapScene(level: level, size: self.size, scene: self)
-    }
-    
-    func loadLayout() {
-        if device == .iPad {
-            
-        } else {
-            
-        }
-    }
+    }*/
 }
 
-class MapScene: SKScene {
-    let map: Map
+class UpgradeNode: SKSpriteNode {
+    var currentTowerSelected: Tower?
     
-    var background: SKSpriteNode!
-    var circleLayer: SKSpriteNode!
-    
-    init(level: Level, size: CGSize, scene: GameScene) {
-        map = Map(level: level)
-        
-        super.init(size: size)
-        
-        position = CGPoint(x: 0, y: size.height)
-        backgroundColor = .orangeColor()
-    }
-    
-    func setupLayers() {
-        
+    init() {
+        super.init(texture: nil, color: .whiteColor(), size: CGSizeZero)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        //Placeholder
-        map = Map(level: Levels.sharedInstance.levels[0])
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
-class Map {
-    let image: UIImage
-    let path: CGPath
+class Tower {
     
-    init(level: Level) {
-        image = level.mapImage
-        
-        //Generate path
-        var points = level.pathPoints
-        
-        let path = CGPathCreateMutable()
-        CGPathMoveToPoint(path, nil, points[0].x, points[0].y)
-        points.removeFirst()
-        
-        CGPathAddLines(path, nil, UnsafePointer(points), points.count)
-        self.path = path
-    }
 }

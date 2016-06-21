@@ -34,9 +34,13 @@
 		38E751891CE830C60087682E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E751881CE830C60087682E /* Assets.xcassets */; };
 		38E7518C1CE830C60087682E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E7518A1CE830C60087682E /* LaunchScreen.storyboard */; };
 		38E751941CE846390087682E /* TowerPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751931CE846390087682E /* TowerPickerNode.swift */; };
+		FC97EB3E1D19ECF700790E08 /* MapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EB3D1D19ECF700790E08 /* MapNode.swift */; };
+		FC97EB401D19ED3700790E08 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EB3F1D19ED3700790E08 /* Map.swift */; };
 		FCC3A9F61D18BD2E002A47D1 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCC3A9F51D18BD2E002A47D1 /* Levels.plist */; };
 		FCC3A9F91D18D48E002A47D1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC3A9F81D18D48E002A47D1 /* Enums.swift */; };
 		FCC3A9FC1D18D8C9002A47D1 /* CircleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC3A9FB1D18D8C9002A47D1 /* CircleEntity.swift */; };
+		FCC424681D1916B100B5DB20 /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC424671D1916B100B5DB20 /* CGSize+Extensions.swift */; };
+		FCC4246B1D1929CC00B5DB20 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC4246A1D1929CC00B5DB20 /* SpriteComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,9 +73,13 @@
 		38E7518B1CE830C60087682E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38E7518D1CE830C60087682E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E751931CE846390087682E /* TowerPickerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerPickerNode.swift; sourceTree = "<group>"; };
+		FC97EB3D1D19ECF700790E08 /* MapNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNode.swift; sourceTree = "<group>"; };
+		FC97EB3F1D19ED3700790E08 /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Map.swift; path = Circles/Map.swift; sourceTree = SOURCE_ROOT; };
 		FCC3A9F51D18BD2E002A47D1 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		FCC3A9F81D18D48E002A47D1 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FCC3A9FB1D18D8C9002A47D1 /* CircleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleEntity.swift; sourceTree = "<group>"; };
+		FCC424671D1916B100B5DB20 /* CGSize+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGSize+Extensions.swift"; sourceTree = "<group>"; };
+		FCC4246A1D1929CC00B5DB20 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */,
-				382A77D71CE86253008EC60F /* MainMenuViewController.swift */,
-				382A77D91CE86287008EC60F /* LevelSelectViewController.swift */,
-				38496A601CEDDDBD001C11FE /* SliderViewController.swift */,
 				38E751831CE830C60087682E /* GameViewController.swift */,
+				382A77D91CE86287008EC60F /* LevelSelectViewController.swift */,
 				382A77DB1CE862A7008EC60F /* LoseViewController.swift */,
+				382A77D71CE86253008EC60F /* MainMenuViewController.swift */,
+				38496A601CEDDDBD001C11FE /* SliderViewController.swift */,
 				382A77DD1CE862B0008EC60F /* WinViewController.swift */,
 			);
 			path = "View Controllers";
@@ -111,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				38E751931CE846390087682E /* TowerPickerNode.swift */,
+				FC97EB3D1D19ECF700790E08 /* MapNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -121,6 +130,7 @@
 				38670FA61CEDBF8300D5F16C /* CGFloat+Extensions.swift */,
 				38670FA71CEDBF8300D5F16C /* CGPoint+Extensions.swift */,
 				38670FA81CEDBF8300D5F16C /* CGVector+Extensions.swift */,
+				FCC424671D1916B100B5DB20 /* CGSize+Extensions.swift */,
 				38670FA91CEDBF8300D5F16C /* Int+Extensions.swift */,
 				38670FAA1CEDBF8400D5F16C /* SKAction+Extensions.swift */,
 				38670FAB1CEDBF8400D5F16C /* SKAction+SpecialEffects.swift */,
@@ -155,16 +165,18 @@
 			children = (
 				38670FA51CEDBF8300D5F16C /* SKTUtils */,
 				38E7517D1CE830C50087682E /* AppDelegate.swift */,
-				382A77D61CE86234008EC60F /* View Controllers */,
-				FCC3A9FA1D18D495002A47D1 /* Level */,
 				FCC3A9F81D18D48E002A47D1 /* Enums.swift */,
+				382A77D61CE86234008EC60F /* View Controllers */,
 				FCC3A9FD1D18D9E9002A47D1 /* Entites */,
-				382A77D51CE84E3C008EC60F /* Scenes */,
+				FCC424691D19297E00B5DB20 /* Components */,
 				382A77E11CE86322008EC60F /* Nodes */,
+				382A77D51CE84E3C008EC60F /* Scenes */,
+				FCC3A9FA1D18D495002A47D1 /* Level */,
+				FC97EB3F1D19ED3700790E08 /* Map.swift */,
 				FCC3A9F71D18BD51002A47D1 /* Resources */,
-				38E751851CE830C60087682E /* Main.storyboard */,
-				38E7518A1CE830C60087682E /* LaunchScreen.storyboard */,
 				38E7518D1CE830C60087682E /* Info.plist */,
+				38E7518A1CE830C60087682E /* LaunchScreen.storyboard */,
+				38E751851CE830C60087682E /* Main.storyboard */,
 			);
 			path = Circles;
 			sourceTree = "<group>";
@@ -181,8 +193,8 @@
 		FCC3A9FA1D18D495002A47D1 /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				3889E5501CF019FF009D8F04 /* LevelView.swift */,
 				38496A5E1CEDC3F2001C11FE /* Level.swift */,
+				3889E5501CF019FF009D8F04 /* LevelView.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -192,8 +204,15 @@
 			children = (
 				FCC3A9FB1D18D8C9002A47D1 /* CircleEntity.swift */,
 			);
-			name = Entites;
-			path = Entities;
+			path = Entites;
+			sourceTree = "<group>";
+		};
+		FCC424691D19297E00B5DB20 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FCC4246A1D1929CC00B5DB20 /* SpriteComponent.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,17 +290,21 @@
 			files = (
 				38670FBD1CEDBF8400D5F16C /* Vector3.swift in Sources */,
 				38670FB71CEDBF8400D5F16C /* SKAction+SpecialEffects.swift in Sources */,
+				FCC4246B1D1929CC00B5DB20 /* SpriteComponent.swift in Sources */,
 				FCC3A9F91D18D48E002A47D1 /* Enums.swift in Sources */,
 				38670FBB1CEDBF8400D5F16C /* SKTEffects.swift in Sources */,
+				FCC424681D1916B100B5DB20 /* CGSize+Extensions.swift in Sources */,
 				38670FB21CEDBF8400D5F16C /* CGFloat+Extensions.swift in Sources */,
 				38E751821CE830C60087682E /* GameScene.swift in Sources */,
 				382A77DA1CE86287008EC60F /* LevelSelectViewController.swift in Sources */,
 				38496A611CEDDDBD001C11FE /* SliderViewController.swift in Sources */,
+				FC97EB401D19ED3700790E08 /* Map.swift in Sources */,
 				382A77D81CE86253008EC60F /* MainMenuViewController.swift in Sources */,
 				382A77DC1CE862A7008EC60F /* LoseViewController.swift in Sources */,
 				38496A5F1CEDC3F2001C11FE /* Level.swift in Sources */,
 				38E751941CE846390087682E /* TowerPickerNode.swift in Sources */,
 				FCC3A9FC1D18D8C9002A47D1 /* CircleEntity.swift in Sources */,
+				FC97EB3E1D19ECF700790E08 /* MapNode.swift in Sources */,
 				38670FB61CEDBF8400D5F16C /* SKAction+Extensions.swift in Sources */,
 				38E751841CE830C60087682E /* GameViewController.swift in Sources */,
 				3889E5511CF019FF009D8F04 /* LevelView.swift in Sources */,
@@ -307,6 +330,7 @@
 				38E751861CE830C60087682E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		38E7518A1CE830C60087682E /* LaunchScreen.storyboard */ = {
@@ -315,6 +339,7 @@
 				38E7518B1CE830C60087682E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

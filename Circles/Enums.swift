@@ -8,18 +8,18 @@
 
 import SpriteKit
 
-public enum LayerZposition: CGFloat {
+enum LayerZposition: CGFloat {
     case Background = -5
     case CircleLayer = 0
     case Sprites = 5
 }
 
-public enum CircleType: Int {
+enum CircleType: Int {
     case Green = 0
     case Blue = 1
     case Purple = 2
     
-    public var radius: CGFloat {
+    var radius: CGFloat {
         switch self {
         case .Green:
             return 20
@@ -30,7 +30,7 @@ public enum CircleType: Int {
         }
     }
     
-    public var damage: CGFloat {
+    var damage: CGFloat {
         switch self {
         case .Green:
             return 2
@@ -41,7 +41,7 @@ public enum CircleType: Int {
         }
     }
     
-    public var speed: CGFloat {
+    var speed: CGFloat {
         switch self {
         case .Green:
             return 50
@@ -52,7 +52,7 @@ public enum CircleType: Int {
         }
     }
     
-    public var color: UIColor {
+    var color: UIColor {
         switch self {
         case .Green:
             return .greenColor()
