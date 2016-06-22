@@ -16,6 +16,7 @@ class Level {
     let pathPoints: [CGPoint]
     let waves: [Wave]
     
+    
     init(name: String, description: String, mapImage: UIImage, selectImage: UIImage, pathPoints: [CGPoint], waves: [Wave]) {
         self.name = name
         self.description = description
@@ -26,72 +27,13 @@ class Level {
     }
 }
 
-class Wave {
-    var green: Int
-    var blue: Int
-    var purple: Int
-    
-    let indexCount = 3
-    
-    let timing = [Int]()
-    
-    subscript(index: Int) -> Int {
-        get {
-            switch index {
-            case 0:
-                return green
-            case 1:
-                return blue
-            case 2:
-                return purple
-            default:
-                print("Invalid Index")
-                return 0
-            }
-        }
-        set(value) {
-            switch index {
-            case 0:
-                green = value
-            case 1:
-                blue = value
-            case 2:
-                purple = value
-            default:
-                print("Invalid Index")
-                break
-            }
-        }
-    }
-    
-    init(green: Int, blue: Int, purple: Int) {
-        self.green = green
-        self.blue = blue
-        self.purple = purple
-    }
-}
-
 struct Levels {
     static let sharedInstance = Levels()
     
-    /*
-    let level1 = Level(name: "Level 1", description: "A Beginers course",
-                       mapImage: UIImage(named: "Level1Map")!, selectImage: UIImage(named: "Level1Select")!)
-    let level2 = Level(name: "Level 2", description: "description",
-                       mapImage: UIImage(named: "Level1Map")!, selectImage: UIImage(named: "Level1Select")!)
-    let level3 = Level(name: "Level 3", description: "description",
-                       mapImage: UIImage(named: "Level1Map")!, selectImage: UIImage(named: "Level1Select")!)
-    let level4 = Level(name: "Level 4", description: "description",
-                       mapImage: UIImage(named: "Level1Map")!, selectImage: UIImage(named: "Level1Select")!)
-    let level5 = Level(name: "Level 5", description: "description",
-                       mapImage: UIImage(named: "Level1Map")!, selectImage: UIImage(named: "Level1Select")!)
-    let level6 = Level(name: "Level 6", description: "description",
-                       mapImage: UIImage(named: "Level1Map")!, selectImage: UIImage(named: "Level1Select")!)
-    */
     var levels: [Level]!
     
     init() {
-       levels = loadLevelsFromPlist()//[level1, level2, level3, level4, level5, level6]
+       levels = loadLevelsFromPlist()
     }
     
     func loadLevelsFromPlist() -> [Level] {

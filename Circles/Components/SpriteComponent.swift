@@ -12,8 +12,8 @@ import GameplayKit
 class SpriteComponent: GKComponent {
     let node: SKShapeNode
     
-    init(type: CircleType, position: CGPoint) {
-        let node = SKShapeNode(circleOfRadius: CGFloat(type.radius))
+    init(type: CircleType, position: CGPoint, large: Bool) {
+        let node = SKShapeNode(circleOfRadius: CGFloat(type.radius(large)))
         node.fillColor = type.color
         node.strokeColor = type.color
         node.position = position
