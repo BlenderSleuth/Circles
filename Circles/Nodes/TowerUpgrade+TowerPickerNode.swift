@@ -9,7 +9,7 @@
 import SpriteKit
 
 class TowerUpgradeNode: SKSpriteNode {
-    var currentTowerSelected: Tower?
+    var currentTowerSelected: TowerEntity?
     
     init(size: CGSize, aspectRatio: CGFloat) {
         let height = size.height - (size.height / aspectRatio)

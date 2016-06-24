@@ -6,7 +6,9 @@
 //  Copyright © 2016 blendersleuthgraphics. All rights reserved.
 //
 
-class Tower {
+import GameplayKit
+
+class TowerEntity: GKEntity {
     let type: TowerType
     init(type: TowerType) {
         self.type = type

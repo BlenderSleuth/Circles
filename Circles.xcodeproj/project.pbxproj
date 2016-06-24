@@ -31,11 +31,11 @@
 		38E751821CE830C60087682E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751811CE830C60087682E /* GameScene.swift */; };
 		38E751841CE830C60087682E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751831CE830C60087682E /* GameViewController.swift */; };
 		38E751871CE830C60087682E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E751851CE830C60087682E /* Main.storyboard */; };
-		38E751891CE830C60087682E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E751881CE830C60087682E /* Assets.xcassets */; };
 		38E7518C1CE830C60087682E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38E7518A1CE830C60087682E /* LaunchScreen.storyboard */; };
 		38E751941CE846390087682E /* TowerUpgrade+TowerPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751931CE846390087682E /* TowerUpgrade+TowerPickerNode.swift */; };
 		FC134CF01D1B57EA0076BDF2 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC134CEF1D1B57EA0076BDF2 /* Wave.swift */; };
-		FC134CF21D1B59940076BDF2 /* Tower.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC134CF11D1B59940076BDF2 /* Tower.swift */; };
+		FC134CF21D1B59940076BDF2 /* TowerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC134CF11D1B59940076BDF2 /* TowerEntity.swift */; };
+		FC30787B1D1CC9DD00B7B205 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E751881CE830C60087682E /* Assets.xcassets */; };
 		FC97EB3E1D19ECF700790E08 /* MapNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97EB3D1D19ECF700790E08 /* MapNode.swift */; };
 		FCC3A9F61D18BD2E002A47D1 /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCC3A9F51D18BD2E002A47D1 /* Levels.plist */; };
 		FCC3A9F91D18D48E002A47D1 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC3A9F81D18D48E002A47D1 /* Enums.swift */; };
@@ -75,7 +75,7 @@
 		38E7518D1CE830C60087682E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38E751931CE846390087682E /* TowerUpgrade+TowerPickerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TowerUpgrade+TowerPickerNode.swift"; sourceTree = "<group>"; };
 		FC134CEF1D1B57EA0076BDF2 /* Wave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
-		FC134CF11D1B59940076BDF2 /* Tower.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tower.swift; sourceTree = "<group>"; };
+		FC134CF11D1B59940076BDF2 /* TowerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TowerEntity.swift; path = ../ValueTypes/TowerEntity.swift; sourceTree = "<group>"; };
 		FC97EB3D1D19ECF700790E08 /* MapNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNode.swift; sourceTree = "<group>"; };
 		FCC3A9F51D18BD2E002A47D1 /* Levels.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		FCC3A9F81D18D48E002A47D1 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
@@ -188,7 +188,6 @@
 				38496A5E1CEDC3F2001C11FE /* Level.swift */,
 				FCC3A9F81D18D48E002A47D1 /* Enums.swift */,
 				FC134CEF1D1B57EA0076BDF2 /* Wave.swift */,
-				FC134CF11D1B59940076BDF2 /* Tower.swift */,
 			);
 			path = ValueTypes;
 			sourceTree = "<group>";
@@ -214,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				FCC3A9FB1D18D8C9002A47D1 /* CircleEntity.swift */,
+				FC134CF11D1B59940076BDF2 /* TowerEntity.swift */,
 			);
 			path = Entites;
 			sourceTree = "<group>";
@@ -285,9 +285,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38E7518C1CE830C60087682E /* LaunchScreen.storyboard in Resources */,
+				FC30787B1D1CC9DD00B7B205 /* Assets.xcassets in Resources */,
 				FCC3A9F61D18BD2E002A47D1 /* Levels.plist in Resources */,
-				38E751891CE830C60087682E /* Assets.xcassets in Resources */,
+				38E7518C1CE830C60087682E /* LaunchScreen.storyboard in Resources */,
 				38E751871CE830C60087682E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,7 +320,7 @@
 				38E751841CE830C60087682E /* GameViewController.swift in Sources */,
 				3889E5511CF019FF009D8F04 /* LevelView.swift in Sources */,
 				38E7517E1CE830C50087682E /* AppDelegate.swift in Sources */,
-				FC134CF21D1B59940076BDF2 /* Tower.swift in Sources */,
+				FC134CF21D1B59940076BDF2 /* TowerEntity.swift in Sources */,
 				38670FB91CEDBF8400D5F16C /* SKNode+Extensions.swift in Sources */,
 				382A77DE1CE862B0008EC60F /* WinViewController.swift in Sources */,
 				38670FB31CEDBF8400D5F16C /* CGPoint+Extensions.swift in Sources */,

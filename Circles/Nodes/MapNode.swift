@@ -14,7 +14,7 @@ class MapNode: SKSpriteNode {
     let circleLayer: SKSpriteNode
     let backgroundLayer: SKSpriteNode
     
-    let margin: CGFloat
+    var margin: CGFloat
     
     init(level: Level, size: CGSize, aspectRatio: CGFloat) {
         let texture = SKTexture(image: level.mapImage)
@@ -29,10 +29,8 @@ class MapNode: SKSpriteNode {
         backgroundLayer = SKSpriteNode(texture: texture, size: imageSize)
         circleLayer = SKSpriteNode(color: .clearColor(), size: imageSize)
         
-        margin = (imageSize.height - mapSize.height)
-        
-        map = Map(level: level, size: mapSize, margin: margin)
-        
+        margin = (imageSize.height - mapSize.height)/2
+        map = Map(level: level, mapSize: mapSize)
         super.init(texture: nil, color: .orangeColor(), size: mapSize)
         
         position = CGPoint(x: size.width / 2, y: size.height - mapSize.height / 2)
@@ -70,47 +68,41 @@ class Map {
     let startPosition: CGPoint
     
     var path: CGPath!
-    var pathImage: UIImage!
     
-    init(level: Level, size: CGSize, margin: CGFloat) {
+    init(level: Level, mapSize: CGSize) {
         image = level.mapImage
-        
         points = level.pathPoints
         startPosition = level.pathPoints[0]
         
-        let (path, pathImage) = createPath(size, margin: margin)
+        let path = createPath(mapSize: mapSize)
         self.path = path
-        self.pathImage = pathImage
     }
     convenience init() {
-        self.init(level: Levels.sharedInstance.levels[0], size: CGSizeZero, margin: 0)
+        print("Stub init used")
+        self.init(level: Levels.sharedInstance.levels[0], mapSize: CGSizeZero)
     }
     
-    func createPath(size: CGSize, margin: CGFloat) -> (CGPath, UIImage) {
+    func createPath(mapSize mapSize: CGSize) -> CGPath {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 1024, height: 576), false, 0)
         
         let context = UIGraphicsGetCurrentContext()
         
         CGContextBeginPath(context)
         CGContextMoveToPoint(context, startPosition.x, startPosition.y)
-        
         CGContextAddLines(context, UnsafePointer(points), points.count)
-
-        let scale: CGFloat = (1024 / size.width)
+        
+        //translating based on device
+        let deltaYTrans: CGFloat = startPosition.y
+        CGContextTranslateCTM(context, 0, -deltaYTrans)
+        
+        //Scaling to device
+        let scale: CGFloat = 1024 / mapSize.width
         CGContextScaleCTM(context, scale, scale)
         
-        //TODO: Fix translation
-        CGContextTranslateCTM(context, 0, -margin/4)
-        
         let path = CGContextCopyPath(context)!
-        
-        CGContextSetLineWidth(context, 1)
-        CGContextSetStrokeColorWithColor(context, UIColor.redColor().CGColor)
-        CGContextStrokePath(context)
-        
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+
         UIGraphicsEndImageContext()
         
-        return (path, image)
+        return path
     }
 }

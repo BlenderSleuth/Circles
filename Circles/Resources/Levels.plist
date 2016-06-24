@@ -3,6 +3,13 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>startPosition</key>
+		<dict>
+			<key>x</key>
+			<integer>0</integer>
+			<key>y</key>
+			<integer>64</integer>
+		</dict>
 		<key>description</key>
 		<string>A Beginners Course</string>
 		<key>name</key>
@@ -11,13 +18,6 @@
 		<string>Level1Map</string>
 		<key>selectImage</key>
 		<string>Level1Select</string>
-		<key>startPosition</key>
-		<dict>
-			<key>x</key>
-			<integer>0</integer>
-			<key>y</key>
-			<integer>64</integer>
-		</dict>
 		<key>waves</key>
 		<array>
 			<array>
@@ -64,7 +64,7 @@
 					<integer>4</integer>
 				</array>
 				<key>x</key>
-				<integer>380</integer>
+				<integer>385</integer>
 				<key>y</key>
 				<integer>352</integer>
 			</dict>
@@ -74,7 +74,7 @@
 					<integer>5</integer>
 				</array>
 				<key>x</key>
-				<integer>380</integer>
+				<integer>385</integer>
 				<key>y</key>
 				<integer>255</integer>
 			</dict>
@@ -96,7 +96,7 @@
 				<key>x</key>
 				<integer>575</integer>
 				<key>y</key>
-				<integer>400</integer>
+				<integer>352</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
@@ -104,9 +104,9 @@
 					<integer>8</integer>
 				</array>
 				<key>x</key>
-				<integer>685</integer>
+				<integer>832</integer>
 				<key>y</key>
-				<integer>820</integer>
+				<integer>352</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
@@ -114,9 +114,9 @@
 					<integer>9</integer>
 				</array>
 				<key>x</key>
-				<integer>685</integer>
+				<integer>832</integer>
 				<key>y</key>
-				<integer>460</integer>
+				<integer>160</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
@@ -124,9 +124,9 @@
 					<integer>10</integer>
 				</array>
 				<key>x</key>
-				<integer>445</integer>
+				<integer>640</integer>
 				<key>y</key>
-				<integer>460</integer>
+				<integer>160</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
@@ -134,9 +134,9 @@
 					<integer>11</integer>
 				</array>
 				<key>x</key>
-				<integer>445</integer>
+				<integer>640</integer>
 				<key>y</key>
-				<integer>300</integer>
+				<integer>65</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
@@ -144,9 +144,9 @@
 					<integer>12</integer>
 				</array>
 				<key>x</key>
-				<integer>845</integer>
+				<integer>927</integer>
 				<key>y</key>
-				<integer>300</integer>
+				<integer>65</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
@@ -154,17 +154,17 @@
 					<integer>13</integer>
 				</array>
 				<key>x</key>
-				<integer>845</integer>
+				<integer>927</integer>
 				<key>y</key>
-				<integer>865</integer>
+				<integer>320</integer>
 			</dict>
 			<dict>
 				<key>connectedNodes</key>
 				<array/>
 				<key>x</key>
-				<integer>1048</integer>
+				<real>1098</real>
 				<key>y</key>
-				<integer>865</integer>
+				<integer>320</integer>
 			</dict>
 		</array>
 	</dict>

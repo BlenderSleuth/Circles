@@ -16,7 +16,6 @@ class Level {
     let pathPoints: [CGPoint]
     let waves: [Wave]
     
-    
     init(name: String, description: String, mapImage: UIImage, selectImage: UIImage, pathPoints: [CGPoint], waves: [Wave]) {
         self.name = name
         self.description = description

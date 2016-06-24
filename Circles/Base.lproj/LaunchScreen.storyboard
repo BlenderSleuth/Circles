@@ -20,32 +20,66 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaI-aI-I18">
-                                <rect key="frame" x="226" y="378.5" width="149" height="43"/>
+                                <rect key="frame" x="226" y="378" width="149" height="43"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=compact-widthClass=compact">
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CIRCLES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDr-3G-rMU">
+                                <rect key="frame" x="113" y="243.5" width="374" height="114.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="100"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="80"/>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="120"/>
                                 </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZWV-ZL-fqZ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Fwj-hc-oVv"/>
+                            <constraint firstItem="FaI-aI-I18" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="63.5" id="G3F-Am-zhJ"/>
+                            <constraint firstItem="MDr-3G-rMU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Kja-wR-0Y4"/>
                             <constraint firstItem="ZWV-ZL-fqZ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="dbl-th-jh8"/>
                             <constraint firstItem="FaI-aI-I18" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="j3T-QA-PJm"/>
+                            <constraint firstItem="MDr-3G-rMU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="qbU-cg-6hs"/>
+                            <constraint firstItem="FaI-aI-I18" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="50.5" id="qfV-7P-2QS"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ZWV-ZL-fqZ" secondAttribute="bottom" id="w0f-bo-o4C"/>
                             <constraint firstAttribute="trailing" secondItem="ZWV-ZL-fqZ" secondAttribute="trailing" id="x1f-W2-vWK"/>
                             <constraint firstItem="FaI-aI-I18" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="xEs-TR-YAg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="G3F-Am-zhJ"/>
+                                <exclude reference="qfV-7P-2QS"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="qfV-7P-2QS"/>
+                                <exclude reference="xEs-TR-YAg"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="G3F-Am-zhJ"/>
+                                <exclude reference="qfV-7P-2QS"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="93" y="322"/>
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchScreen" width="2048" height="2048"/>
+        <image name="LaunchScreen" width="1024" height="1024"/>
     </resources>
 </document>

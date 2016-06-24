@@ -37,7 +37,7 @@ class LevelView: UIView {
         let imageFrame = CGRect(origin: origin, size: size)
         levelImage.frame = imageFrame
         
-        levelImage.image = level.mapImage
+        levelImage.image = level.selectImage
         levelImage.contentMode = .ScaleAspectFill
         levelImage.clipsToBounds = true
         addSubview(levelImage)
