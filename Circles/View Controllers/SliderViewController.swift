@@ -27,9 +27,9 @@ class SliderViewController: UIViewController, LevelTapDelegate, UIScrollViewDele
         }
     }
     
-    func levelTapped(level: Level) {
-        if let gameViewController = storyboard?.instantiateViewControllerWithIdentifier("GameViewController") as? GameViewController {
-            parentViewController!.navigationController?.pushViewController(gameViewController, animated: true)
+    func levelTapped(_ level: Level) {
+        if let gameViewController = storyboard?.instantiateViewController(withIdentifier: "GameViewController") as? GameViewController {
+            parent!.navigationController?.pushViewController(gameViewController, animated: true)
             gameViewController.level = level
         }
     }
@@ -37,7 +37,7 @@ class SliderViewController: UIViewController, LevelTapDelegate, UIScrollViewDele
 
 class SliderView: UIView {
     
-    func setupLevels(bounds bounds: CGRect) -> CGRect {
+    func setupLevels(bounds: CGRect) -> CGRect {
         //constants
         let margin = bounds.width / 100
         let height = bounds.height - margin * 2

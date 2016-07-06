@@ -13,12 +13,12 @@ class TowerUpgradeNode: SKSpriteNode {
     
     init(size: CGSize, aspectRatio: CGFloat) {
         let height = size.height - (size.height / aspectRatio)
-        let nodeSize = CGSizeMake(size.width / 2, height)
+        let nodeSize = CGSize(width: size.width, height: height)
         
-        super.init(texture: nil, color: .orangeColor(), size: nodeSize)
+        super.init(texture: nil, color: .orange(), size: nodeSize)
         
         self.position = CGPoint(x: size.width, y: 0)
-        anchorPoint = CGPoint(x: 1, y: 0)
+        anchorPoint = CGPoint(x: 0.5, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,12 +29,12 @@ class TowerPickerNode: SKSpriteNode {
     
     init(size: CGSize, aspectRatio: CGFloat) {
         let height = size.height - (size.height / aspectRatio)
-        let nodeSize = CGSizeMake(size.width / 2, height)
+        let nodeSize = CGSize(width: size.width, height: height)
         
-        super.init(texture: nil, color: .purpleColor(), size: nodeSize)
+        super.init(texture: nil, color: .purple(), size: nodeSize)
         
         self.position = CGPoint(x: 0, y: 0)
-        anchorPoint = CGPoint(x: 0, y: 0)
+        anchorPoint = CGPoint(x: 0.5, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

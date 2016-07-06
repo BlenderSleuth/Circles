@@ -21,16 +21,20 @@ class CircleEntity: GKEntity {
         
         setCircleOnPath(path)
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    func setCircleOnPath(path: CGPath) {
+    func setCircleOnPath(_ path: CGPath) {
         let action = SKAction.sequence([
-            SKAction.followPath(path, asOffset: false, orientToPath: false, speed: type.speed),
-            SKAction.runBlock {self.removeCircle(dead: false)}
+            SKAction.follow(path, asOffset: false, orientToPath: false, speed: type.speed),
+            SKAction.run {self.removeCircle(dead: false)}
             ])
         
-        spriteComponent.node.runAction(action)
+        spriteComponent.node.run(action)
     }
-    func removeCircle(dead dead: Bool) {
+    func removeCircle(dead: Bool) {
         if dead {
             print("Dead")
             spriteComponent.node.removeAllActions()

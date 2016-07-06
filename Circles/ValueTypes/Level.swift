@@ -36,7 +36,7 @@ struct Levels {
     }
     
     func loadLevelsFromPlist() -> [Level] {
-        let plist = NSBundle.mainBundle().pathForResource("Levels", ofType: "plist")!
+        let plist = Bundle.main().pathForResource("Levels", ofType: "plist")!
         let array = NSArray(contentsOfFile: plist) as! [[String: AnyObject]]
         
         var levelArray = [Level]()

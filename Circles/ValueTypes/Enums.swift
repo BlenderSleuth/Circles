@@ -8,9 +8,9 @@
 
 import SpriteKit
 
-func createPolygonWithSides(numberOfSides: Int, radius: CGFloat) -> CGPath {
-    let path = CGPathCreateMutable()
-    CGPathMoveToPoint(path, nil, 0, 0)
+func createPolygonWithSides(_ numberOfSides: Int, radius: CGFloat) -> CGPath {
+    let path = CGMutablePath()
+    path.moveTo(nil, x: 0, y: 0)
     
     let oneSegment = π * 2 / CGFloat(numberOfSides)
     
@@ -23,15 +23,15 @@ func createPolygonWithSides(numberOfSides: Int, radius: CGFloat) -> CGPath {
         points.append(point)
     }
     
-    CGPathAddLines(path, nil, UnsafePointer(points), points.count)
-    CGPathCloseSubpath(path)
+    path.addLines(nil, between: UnsafePointer(points), count: points.count)
+    path.closeSubpath()
     return path
 }
 
 enum LayerZposition: CGFloat {
-    case Background = -5
-    case CircleLayer = 0
-    case Sprites = 5
+    case background = -5
+    case circleLayer = 0
+    case sprites = 5
 }
 
 enum Device {
@@ -40,19 +40,19 @@ enum Device {
 }
 
 enum CircleType: Int {
-    case Green = 0
-    case Blue = 1
-    case Purple = 2
+    case green = 0
+    case blue = 1
+    case purple = 2
     
     //TODO: Radius multiplier
-    func radius(large: Bool) -> CGFloat {
+    func radius(_ large: Bool) -> CGFloat {
         let t: CGFloat
         switch self {
-        case .Green:
+        case .green:
             t = 10
-        case .Blue:
+        case .blue:
             t = 15
-        case .Purple:
+        case .purple:
             t = 30
         }
         if large {
@@ -65,48 +65,48 @@ enum CircleType: Int {
     
     var damage: CGFloat {
         switch self {
-        case .Green:
+        case .green:
             return 2
-        case .Blue:
+        case .blue:
             return 4
-        case .Purple:
+        case .purple:
             return 10
         }
     }
     
     var speed: CGFloat {
         switch self {
-        case .Green:
+        case .green:
             return 50
-        case .Blue:
+        case .blue:
             return 75
-        case .Purple:
+        case .purple:
             return 130
         }
     }
     
     var color: UIColor {
         switch self {
-        case .Green:
-            return .greenColor()
-        case .Blue:
-            return .blueColor()
-        case .Purple:
-            return .purpleColor()
+        case .green:
+            return .green()
+        case .blue:
+            return .blue()
+        case .purple:
+            return .purple()
         }
     }
 }
 
 enum TowerType: Int {
-    case Triangle = 3
-    case Square
-    case Pentagon
-    case Hexagon
-    case Heptagon
-    case Octagon
-    case Nonagon
-    case Decagon
-    case RainbowDodecagon = 20
+    case triangle = 3
+    case square
+    case pentagon
+    case hexagon
+    case heptagon
+    case octagon
+    case nonagon
+    case decagon
+    case rainbowDodecagon = 20
     
     var radius: CGFloat {
         switch self.rawValue {
@@ -121,7 +121,7 @@ enum TowerType: Int {
     
     var attackSpeed: CGFloat {
         switch self {
-        case .Square:
+        case .square:
             return 10
         default:
             return 10

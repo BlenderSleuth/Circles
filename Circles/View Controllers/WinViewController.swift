@@ -13,9 +13,9 @@ class WinViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    @IBAction func button(sender: AnyObject) {
+    @IBAction func button(_ sender: AnyObject) {
         if let levelSelectViewController = navigationController?.viewControllers[1] as? LevelSelectViewController {
-            navigationController?.popToViewController(levelSelectViewController, animated: true)
+            _ = navigationController?.popToViewController(levelSelectViewController, animated: true)
         }
     }
 }

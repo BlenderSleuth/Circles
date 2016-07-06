@@ -21,8 +21,8 @@ class LevelSelectViewController: UIViewController {
         }
     }
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        navigationController?.popToRootViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
+        _ = navigationController?.popToRootViewController(animated: true)
     }
 }
 
@@ -33,11 +33,11 @@ class ScrollingImage: UIView {
     
     override func didMoveToSuperview() {
         imageView.image = image
-        imageView.contentMode = .ScaleAspectFit
+        imageView.contentMode = .scaleAspectFit
         addSubview(imageView)
         
         imageView2.image = image
-        imageView2.contentMode = .ScaleAspectFit
+        imageView2.contentMode = .scaleAspectFit
         addSubview(imageView2)
     }
     
@@ -49,14 +49,14 @@ class ScrollingImage: UIView {
     }
     
     func scroll() {
-        func animate(amountToMove: CGFloat, view: UIView, completion: (Bool) -> ()) {
+        func animate(_ amountToMove: CGFloat, view: UIView, completion: (Bool) -> ()) {
             let pointsPerSec: CGFloat = 25
             
-            let seconds = NSTimeInterval(abs(amountToMove) / pointsPerSec)
+            let seconds = TimeInterval(abs(amountToMove) / pointsPerSec)
             
-            UIView.animateWithDuration(seconds,
+            UIView.animate(withDuration: seconds,
                                        delay: 0,
-                                       options: UIViewAnimationOptions.CurveLinear,
+                                       options: UIViewAnimationOptions.curveLinear,
                                        animations: {view.frame.origin.x += amountToMove}, completion: completion)
         }
         let lastPosX = -(imageView.frame.width - bounds.width)

@@ -32,7 +32,7 @@ class GameScene: SKScene {
         fatalError("init(coder:) has not been implemented")
     }//For loading from archive
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         setupDevice()
         
         setupMapNode()
@@ -43,7 +43,7 @@ class GameScene: SKScene {
     }
     
     func setupDevice() {
-        if UIDevice.currentDevice().model == "iPhone" {
+        if UIDevice.current().model == "iPhone" {
             device = .iPhone
         } else {
             device = .iPad
@@ -72,18 +72,18 @@ class GameScene: SKScene {
         }
     }
     
-    func createCircleAtPoint(type: CircleType, position: CGPoint) {
+    func createCircleAtPoint(_ type: CircleType, position: CGPoint) {
         let spriteComponent = SpriteComponent(type: type, position: position, large: (device == Device.iPad))
         
         let entity = CircleEntity(spriteComponent: spriteComponent, circleType: type, path: mapNode.map.path)
         entities.append(entity)
         
-        spriteSystem.addComponentWithEntity(entity)
+        spriteSystem.addComponent(with: entity)
         
         mapNode.circleLayer.addChild(entity.spriteComponent.node)
     }
     
-    func setCircleOnPath(circle: CircleEntity) {
+    func setCircleOnPath(_ circle: CircleEntity) {
         circle.setCircleOnPath(mapNode.map.path)
     }
 }

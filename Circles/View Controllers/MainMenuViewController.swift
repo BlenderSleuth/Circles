@@ -15,8 +15,8 @@ class MainMenuViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    @IBAction func playButtonPressed(sender: AnyObject) {
-        if let levelSelectViewController = storyboard?.instantiateViewControllerWithIdentifier("LevelSelectViewController") as? LevelSelectViewController {
+    @IBAction func playButtonPressed(_ sender: AnyObject) {
+        if let levelSelectViewController = storyboard?.instantiateViewController(withIdentifier: "LevelSelectViewController") as? LevelSelectViewController {
             navigationController?.pushViewController(levelSelectViewController, animated: true)
         }
     }

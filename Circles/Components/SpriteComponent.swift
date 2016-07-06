@@ -17,12 +17,16 @@ class SpriteComponent: GKComponent {
         node.fillColor = type.color
         node.strokeColor = type.color
         node.position = position
-        node.zPosition = LayerZposition.Sprites.rawValue
+        node.zPosition = LayerZposition.sprites.rawValue
         
         self.node = node
         super.init()
     }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
-    override func updateWithDeltaTime(seconds: NSTimeInterval) {
+    override func update(withDeltaTime seconds: TimeInterval) {
     }
 }

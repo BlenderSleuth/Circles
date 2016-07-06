@@ -22,7 +22,7 @@ class LevelView: UIView {
         levelLabel = UILabel()
         super.init(frame: frame)
         
-        backgroundColor = .blackColor()
+        backgroundColor = .black()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LevelView.didTap(_:)))
         
@@ -38,27 +38,27 @@ class LevelView: UIView {
         levelImage.frame = imageFrame
         
         levelImage.image = level.selectImage
-        levelImage.contentMode = .ScaleAspectFill
+        levelImage.contentMode = .scaleAspectFill
         levelImage.clipsToBounds = true
         addSubview(levelImage)
         
         levelLabel.text = level.name
         
-        let model = UIDevice.currentDevice().model
+        let model = UIDevice.current().model
         if (model == "iPhone") || (model == "iPod Touch") {
             levelLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 34)
         } else {
             levelLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 58)
         }
         
-        levelLabel.textColor = .whiteColor()
-        levelLabel.textAlignment = NSTextAlignment.Center
+        levelLabel.textColor = .white()
+        levelLabel.textAlignment = NSTextAlignment.center
         levelLabel.frame = CGRect(x: 0, y: margin, width: bounds.width, height: bounds.height / 6)
         addSubview(levelLabel)
     }
     
-    func didTap(tapRecognizer: UITapGestureRecognizer) {
-        if tapRecognizer.state == .Ended {
+    func didTap(_ tapRecognizer: UITapGestureRecognizer) {
+        if tapRecognizer.state == .ended {
             if delegate != nil {
                 delegate?.levelTapped(level)
             }
@@ -71,5 +71,5 @@ class LevelView: UIView {
 }
 
 protocol LevelTapDelegate {
-    func levelTapped(level: Level)
+    func levelTapped(_ level: Level)
 }

@@ -9,8 +9,8 @@
 import SpriteKit
 
 func / (lhs: CGSize, rhs: CGFloat) -> CGSize {
-    return CGSizeMake(lhs.width / rhs, lhs.height / rhs)
+    return CGSize(width: lhs.width / rhs, height: lhs.height / rhs)
 }
 func * (lhs: CGSize, rhs: CGFloat) -> CGSize {
-    return CGSizeMake(lhs.width * rhs, lhs.height * rhs)
+    return CGSize(width: lhs.width * rhs, height: lhs.height * rhs)
 }

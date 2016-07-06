@@ -14,24 +14,24 @@ class MapNode: SKSpriteNode {
     let circleLayer: SKSpriteNode
     let backgroundLayer: SKSpriteNode
     
-    var margin: CGFloat
+    let margin: CGFloat
     
     init(level: Level, size: CGSize, aspectRatio: CGFloat) {
         let texture = SKTexture(image: level.mapImage)
-        let mapSize = CGSizeMake(size.width, size.height / aspectRatio)
+        let mapSize = CGSize(width: size.width, height: size.height / aspectRatio)
         
         //Get the correct size of the map
         let imageRatio = texture.size().height / texture.size().width
         let imageWidth = mapSize.width
         let imageHeight = mapSize.width * imageRatio
-        let imageSize = CGSizeMake(imageWidth, imageHeight)
+        let imageSize = CGSize(width: imageWidth, height: imageHeight)
         
         backgroundLayer = SKSpriteNode(texture: texture, size: imageSize)
-        circleLayer = SKSpriteNode(color: .clearColor(), size: imageSize)
+        circleLayer = SKSpriteNode(color: .clear(), size: imageSize)
         
         margin = (imageSize.height - mapSize.height)/2
         map = Map(level: level, mapSize: mapSize)
-        super.init(texture: nil, color: .orangeColor(), size: mapSize)
+        super.init(texture: nil, color: .orange(), size: mapSize)
         
         position = CGPoint(x: size.width / 2, y: size.height - mapSize.height / 2)
         
@@ -48,11 +48,11 @@ class MapNode: SKSpriteNode {
     
     func setupLayers() {
         let backgroundCropNode = SKCropNode()
-        backgroundCropNode.maskNode = SKSpriteNode(color: .blackColor(), size: size)
+        backgroundCropNode.maskNode = SKSpriteNode(color: .black(), size: size)
         
-        backgroundLayer.zPosition = LayerZposition.Background.rawValue
+        backgroundLayer.zPosition = LayerZposition.background.rawValue
         
-        circleLayer.zPosition = LayerZposition.CircleLayer.rawValue
+        circleLayer.zPosition = LayerZposition.circleLayer.rawValue
         circleLayer.anchorPoint = CGPoint(x: 0, y: 0)
         circleLayer.position = CGPoint(x: -size.width/2, y: -size.height / 2 - margin)
         
@@ -79,30 +79,30 @@ class Map {
     }
     convenience init() {
         print("Stub init used")
-        self.init(level: Levels.sharedInstance.levels[0], mapSize: CGSizeZero)
+        self.init(level: Levels.sharedInstance.levels[0], mapSize: CGSize.zero)
     }
     
-    func createPath(mapSize mapSize: CGSize) -> CGPath {
+    func createPath(mapSize: CGSize) -> CGPath {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 1024, height: 576), false, 0)
         
         let context = UIGraphicsGetCurrentContext()
         
-        CGContextBeginPath(context)
-        CGContextMoveToPoint(context, startPosition.x, startPosition.y)
-        CGContextAddLines(context, UnsafePointer(points), points.count)
+        context?.beginPath()
+        context?.moveTo(x: startPosition.x, y: startPosition.y)
+        context?.addLines(between: UnsafePointer(points), count: points.count)
         
         //translating based on device
         let deltaYTrans: CGFloat = startPosition.y
-        CGContextTranslateCTM(context, 0, -deltaYTrans)
+        context?.translate(x: 0, y: -deltaYTrans)
         
         //Scaling to device
         let scale: CGFloat = 1024 / mapSize.width
-        CGContextScaleCTM(context, scale, scale)
+        context?.scale(x: scale, y: scale)
         
-        let path = CGContextCopyPath(context)!
+        let path = context?.path()!
 
         UIGraphicsEndImageContext()
         
-        return path
+        return path!
     }
 }
