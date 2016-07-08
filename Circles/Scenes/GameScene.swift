@@ -17,9 +17,6 @@ class GameScene: SKScene {
     var towerPickerNode: TowerPickerNode!
     var towerUpgradeNode: TowerUpgradeNode!
     
-    //TODO: Don't use device; use screen size and proportions
-    var device: Device!
-    
     var entities = [GKEntity]()
     
     let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
@@ -30,10 +27,10 @@ class GameScene: SKScene {
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }//For loading from archive
-    
+    }
+	
     override func didMove(to view: SKView) {
-        setupDevice()
+        //setupDevice()
         
         setupMapNode()
         setupTowerPickerNode()
@@ -41,15 +38,7 @@ class GameScene: SKScene {
         
         startWave()
     }
-    
-    func setupDevice() {
-        if UIDevice.current().model == "iPhone" {
-            device = .iPhone
-        } else {
-            device = .iPad
-        }
-    }
-    
+	
     func setupMapNode() {
         mapNode = MapNode(level: level, size: size, aspectRatio: aspectRatio)
         addChild(mapNode)
@@ -73,7 +62,7 @@ class GameScene: SKScene {
     }
     
     func createCircleAtPoint(_ type: CircleType, position: CGPoint) {
-        let spriteComponent = SpriteComponent(type: type, position: position, large: (device == Device.iPad))
+        let spriteComponent = SpriteComponent(type: type, position: position, pathWidth: mapNode.pathWidth)
         
         let entity = CircleEntity(spriteComponent: spriteComponent, circleType: type, path: mapNode.map.path)
         entities.append(entity)

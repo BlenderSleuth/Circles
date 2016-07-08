@@ -27,8 +27,10 @@ class CircleEntity: GKEntity {
     }
     
     func setCircleOnPath(_ path: CGPath) {
+		let speed = path.boundingBoxOfPath.size.width / type.speed
+		
         let action = SKAction.sequence([
-            SKAction.follow(path, asOffset: false, orientToPath: false, speed: type.speed),
+            SKAction.follow(path, asOffset: false, orientToPath: false, speed: speed),
             SKAction.run {self.removeCircle(dead: false)}
             ])
         

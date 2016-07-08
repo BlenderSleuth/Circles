@@ -15,6 +15,10 @@ class MapNode: SKSpriteNode {
     let backgroundLayer: SKSpriteNode
     
     let margin: CGFloat
+	
+	let pathWidth: CGFloat
+	
+	private let pathFraction: CGFloat = 9
     
     init(level: Level, size: CGSize, aspectRatio: CGFloat) {
         let texture = SKTexture(image: level.mapImage)
@@ -31,20 +35,18 @@ class MapNode: SKSpriteNode {
         
         margin = (imageSize.height - mapSize.height)/2
         map = Map(level: level, mapSize: mapSize)
+		
+		pathWidth = mapSize.height / pathFraction
+		
         super.init(texture: nil, color: .orange(), size: mapSize)
-        
         position = CGPoint(x: size.width / 2, y: size.height - mapSize.height / 2)
         
         setupLayers()
     }
-    required init?(coder aDecoder: NSCoder) {
-        //Stub
-        circleLayer = SKSpriteNode()
-        map = Map()
-        backgroundLayer = SKSpriteNode()
-        margin = 0
-        super.init(coder: aDecoder)
-    }
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
     
     func setupLayers() {
         let backgroundCropNode = SKCropNode()

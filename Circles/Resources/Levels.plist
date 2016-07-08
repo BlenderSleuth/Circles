@@ -3,13 +3,6 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>startPosition</key>
-		<dict>
-			<key>x</key>
-			<integer>0</integer>
-			<key>y</key>
-			<integer>64</integer>
-		</dict>
 		<key>description</key>
 		<string>A Beginners Course</string>
 		<key>name</key>
