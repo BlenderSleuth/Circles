@@ -15,7 +15,6 @@ class MapNode: SKSpriteNode {
     let backgroundLayer: SKSpriteNode
     
     let margin: CGFloat
-	
 	let pathWidth: CGFloat
 	
 	private let pathFraction: CGFloat = 9

@@ -30,11 +30,9 @@ class GameScene: SKScene {
     }
 	
     override func didMove(to view: SKView) {
-        //setupDevice()
-        
-        setupMapNode()
+		setupMapNode()
         setupTowerPickerNode()
-        setupTowerUpgradeNode()
+        //setupTowerUpgradeNode()
         
         startWave()
     }
@@ -44,13 +42,14 @@ class GameScene: SKScene {
         addChild(mapNode)
     }
     func setupTowerPickerNode() {
-        towerPickerNode = TowerPickerNode(size: size, aspectRatio: aspectRatio)
+        towerPickerNode = TowerPickerNode(sceneSize: size, aspectRatio: aspectRatio)
         addChild(towerPickerNode)
     }
     func setupTowerUpgradeNode() {
-        towerUpgradeNode = TowerUpgradeNode(size: size, aspectRatio: aspectRatio)
+        towerUpgradeNode = TowerUpgradeNode(sceneSize: size, aspectRatio: aspectRatio)
         addChild(towerUpgradeNode)
     }
+	
     func startWave() {
         let wave = level.waves[0]
         for index in 0..<wave.indexCount {
