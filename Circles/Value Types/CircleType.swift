@@ -15,16 +15,14 @@ enum CircleType: Int {
 	
 	//Path width divisor
 	var radiusDivisor: CGFloat {
-		let divisor: CGFloat
 		switch self {
 		case .green:
-			divisor = 3.5
+			return 3.5
 		case .blue:
-			divisor = 3.25
+			return 3.25
 		case .purple:
-			divisor = 2.75
+			return 2.75
 		}
-		return divisor
 	}
 	
 	var damage: CGFloat {

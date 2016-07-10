@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		38BB011D1D32101500C06F05 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB01181D32101500C06F05 /* Level.swift */; };
 		38BB011F1D32101500C06F05 /* Wave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB011A1D32101500C06F05 /* Wave.swift */; };
 		38BB01231D3210DB00C06F05 /* TowerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB01221D3210DB00C06F05 /* TowerType.swift */; };
+		38BB01251D32125D00C06F05 /* TowerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB01241D32125D00C06F05 /* TowerNode.swift */; };
 		38E7517E1CE830C50087682E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E7517D1CE830C50087682E /* AppDelegate.swift */; };
 		38E751821CE830C60087682E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751811CE830C60087682E /* GameScene.swift */; };
 		38E751841CE830C60087682E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E751831CE830C60087682E /* GameViewController.swift */; };
@@ -73,6 +74,7 @@
 		38BB01181D32101500C06F05 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		38BB011A1D32101500C06F05 /* Wave.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wave.swift; sourceTree = "<group>"; };
 		38BB01221D3210DB00C06F05 /* TowerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerType.swift; sourceTree = "<group>"; };
+		38BB01241D32125D00C06F05 /* TowerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerNode.swift; sourceTree = "<group>"; };
 		38E7517A1CE830C50087682E /* Circles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E7517D1CE830C50087682E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38E751811CE830C60087682E /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				38480A641D30999100549F96 /* TowerPickerNode.swift */,
 				38E751931CE846390087682E /* TowerUpgradeNode.swift */,
 				FC97EB3D1D19ECF700790E08 /* MapNode.swift */,
+				38BB01241D32125D00C06F05 /* TowerNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -274,7 +277,7 @@
 				};
 			};
 			buildConfigurationList = 38E751751CE830C50087682E /* Build configuration list for PBXProject "Circles" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -314,6 +317,7 @@
 				38670FB71CEDBF8400D5F16C /* SKAction+SpecialEffects.swift in Sources */,
 				38BB011B1D32101500C06F05 /* CircleType.swift in Sources */,
 				FCC4246B1D1929CC00B5DB20 /* SpriteComponent.swift in Sources */,
+				38BB01251D32125D00C06F05 /* TowerNode.swift in Sources */,
 				38670FBB1CEDBF8400D5F16C /* SKTEffects.swift in Sources */,
 				38480A651D30999100549F96 /* TowerPickerNode.swift in Sources */,
 				FCC424681D1916B100B5DB20 /* CGSize+Extensions.swift in Sources */,

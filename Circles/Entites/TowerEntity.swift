@@ -10,8 +10,11 @@ import GameplayKit
 
 class TowerEntity: GKEntity {
     let type: TowerType
+	let node: TowerNode
+	
     init(type: TowerType) {
         self.type = type
+		node = TowerNode(type: type)
 		super.init()
     }
 
