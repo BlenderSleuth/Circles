@@ -57,4 +57,15 @@ enum CircleType: Int {
 			return .purple()
 		}
 	}
+	
+	var texture: SKTexture {
+		switch self {
+		case .green:
+			return SKTexture(imageNamed: "GreenCircle")
+		case .blue:
+			return SKTexture(imageNamed: "BlueCircle")
+		case .purple:
+			return SKTexture(imageNamed: "PurpleCircle")
+		}
+	}
 }

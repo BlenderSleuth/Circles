@@ -61,13 +61,10 @@ class GameScene: SKScene {
     }
     
     func createCircleAtPoint(_ type: CircleType, position: CGPoint) {
-        let spriteComponent = SpriteComponent(type: type, position: position, pathWidth: mapNode.pathWidth)
-        
-        let entity = CircleEntity(spriteComponent: spriteComponent, circleType: type, path: mapNode.map.path)
+		let entity = CircleEntity(circleType: type, startPosition: position, mapNode: mapNode)
+		
         entities.append(entity)
-        
         spriteSystem.addComponent(with: entity)
-        
         mapNode.circleLayer.addChild(entity.spriteComponent.node)
     }
     

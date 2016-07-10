@@ -12,14 +12,20 @@ class CircleEntity: GKEntity {
     let spriteComponent: SpriteComponent
     let type: CircleType
     
-    init(spriteComponent: SpriteComponent, circleType: CircleType, path: CGPath) {
-        self.spriteComponent = spriteComponent
-        type = circleType
+    init(circleType type: CircleType, startPosition position: CGPoint, mapNode: MapNode) {
+		let radius = mapNode.pathWidth / type.radiusDivisor
+		
+		self.spriteComponent = SpriteComponent(position: position,
+		                                       size: CGSize(width: radius*2,
+		                                                    height: radius*2),
+		                                       texture: type.texture)
+		
+		self.type = type
         
         super.init()
         addComponent(spriteComponent)
         
-        setCircleOnPath(path)
+        setCircleOnPath(mapNode.map.path)
     }
 
     required init?(coder aDecoder: NSCoder) {

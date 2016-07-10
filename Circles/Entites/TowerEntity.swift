@@ -10,11 +10,11 @@ import GameplayKit
 
 class TowerEntity: GKEntity {
     let type: TowerType
-	let node: TowerNode
+	let spriteComponent: SpriteComponent
 	
     init(type: TowerType) {
-        self.type = type
-		node = TowerNode(type: type)
+        self.type = type //TowerNode(type: type)
+		spriteComponent = SpriteComponent(position: CGPoint(x: 0, y: 0), size: CGSize(width: 0, height: 0), texture: nil)
 		super.init()
     }
 

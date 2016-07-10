@@ -10,16 +10,14 @@ import SpriteKit
 import GameplayKit
 
 class SpriteComponent: GKComponent {
-    let node: SKShapeNode
+    var node: SKSpriteNode!
     
-	init(type: CircleType, position: CGPoint, pathWidth: CGFloat) {
-        let node = SKShapeNode(circleOfRadius: pathWidth / type.radiusDivisor)
-        node.fillColor = type.color
-        node.strokeColor = type.color
+	init(position: CGPoint, size: CGSize, texture: SKTexture?) {
+		node = SKSpriteNode()
+		node.texture = texture
         node.position = position
+		node.size = size
         node.zPosition = LayerZposition.sprites.rawValue
-        
-        self.node = node
         super.init()
     }
 

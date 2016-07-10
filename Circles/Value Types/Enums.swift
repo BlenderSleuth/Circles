@@ -32,4 +32,5 @@ enum LayerZposition: CGFloat {
 	case background = -5
 	case circleLayer = 0
 	case sprites = 5
+	case UI = 10
 }
