@@ -18,6 +18,7 @@ class GameScene: SKScene {
     var towerUpgradeNode: TowerUpgradeNode!
     
     var entities = [GKEntity]()
+	var selectedTower: TowerEntity?
     
     let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
     
@@ -44,6 +45,7 @@ class GameScene: SKScene {
     func setupTowerPickerNode() {
         towerPickerNode = TowerPickerNode(sceneSize: size, aspectRatio: aspectRatio)
         addChild(towerPickerNode)
+		towerPickerNode.setuptowers()
     }
     func setupTowerUpgradeNode() {
         towerUpgradeNode = TowerUpgradeNode(sceneSize: size, aspectRatio: aspectRatio)
@@ -71,4 +73,38 @@ class GameScene: SKScene {
     func setCircleOnPath(_ circle: CircleEntity) {
         circle.setCircleOnPath(mapNode.map.path)
     }
+	
+	func createTowerAt(point: CGPoint, towerNode: TowerNode) {
+		print("create tower node")
+		
+		let towerEntity = TowerEntity(node: towerNode)
+		addChild(towerEntity.spriteComponent.node)
+		selectedTower = towerEntity
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		for touch in touches {
+			let location = touch.location(in: self)
+			let pickerLocation = self.convert(location, to: towerPickerNode)
+			if let tower = towerPickerNode.getTowerForPosition(position: pickerLocation) {
+				createTowerAt(point: location, towerNode: tower)
+			}
+		}
+	}
+	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+		print("touches moves")
+		for touch in touches {
+			let location = touch.location(in: self)
+			if let selectedTower = selectedTower {
+				selectedTower.spriteComponent.node.position = location
+			}
+		}
+	}
 }
+
+
+
+
+
+
+

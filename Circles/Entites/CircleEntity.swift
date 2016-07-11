@@ -15,10 +15,9 @@ class CircleEntity: GKEntity {
     init(circleType type: CircleType, startPosition position: CGPoint, mapNode: MapNode) {
 		let radius = mapNode.pathWidth / type.radiusDivisor
 		
-		self.spriteComponent = SpriteComponent(position: position,
-		                                       size: CGSize(width: radius*2,
-		                                                    height: radius*2),
-		                                       texture: type.texture)
+		let node = SKSpriteNode(texture: type.texture, color: .clear(), size: CGSize(width: radius*2, height: radius*2))
+		
+		self.spriteComponent = SpriteComponent(node: node)
 		
 		self.type = type
         

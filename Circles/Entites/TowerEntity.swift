@@ -12,9 +12,9 @@ class TowerEntity: GKEntity {
     let type: TowerType
 	let spriteComponent: SpriteComponent
 	
-    init(type: TowerType) {
-        self.type = type //TowerNode(type: type)
-		spriteComponent = SpriteComponent(position: CGPoint(x: 0, y: 0), size: CGSize(width: 0, height: 0), texture: nil)
+	init(node: TowerNode) {
+        self.type = node.type
+		spriteComponent = SpriteComponent(node: node)
 		super.init()
     }
 

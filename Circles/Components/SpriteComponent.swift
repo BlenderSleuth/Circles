@@ -12,11 +12,8 @@ import GameplayKit
 class SpriteComponent: GKComponent {
     var node: SKSpriteNode!
     
-	init(position: CGPoint, size: CGSize, texture: SKTexture?) {
-		node = SKSpriteNode()
-		node.texture = texture
-        node.position = position
-		node.size = size
+	init(node: SKSpriteNode) {
+		self.node = node
         node.zPosition = LayerZposition.sprites.rawValue
         super.init()
     }

@@ -10,7 +10,7 @@ import SpriteKit
 
 enum TowerType: Int {
 	case triangle = 3
-	case square
+	case diamond
 	case pentagon
 	case hexagon
 	case heptagon
@@ -36,7 +36,7 @@ enum TowerType: Int {
 	
 	var attackSpeed: CGFloat {
 		switch self {
-		case .square:
+		case .diamond:
 			return 10
 		default:
 			return 10
@@ -47,24 +47,22 @@ enum TowerType: Int {
 		return self.rawValue
 	}
 	
-	var path: CGPath {
-		return createPolygonWithSides(numOfSides, radius: radius)
-	}
 	var texture: SKTexture {
 		let imageName: String
-		
 		switch self {
 		case .triangle:
-			imageName = "triangle"
-		case .square:
-			imageName = "square"
-		case .pentagon:
-			imageName = "pantagon"
+			imageName = "Triangle1"
+		case .diamond:
+			imageName = "Diamond1"
+		case .rainbowDodecagon:
+			imageName = "RainbowDodecagon1"
 		default:
-			imageName = "square"
+			imageName = "Diamond1"
 		}
 		
-		
 		return SKTexture(imageNamed: imageName)
+	}
+	static var allTowers: [TowerType] {
+		return [.triangle, .diamond, .pentagon, .hexagon, .heptagon, .octagon, .nonagon, .decagon, .rainbowDodecagon]
 	}
 }

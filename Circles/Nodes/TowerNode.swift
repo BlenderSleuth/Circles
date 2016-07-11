@@ -9,13 +9,27 @@
 import SpriteKit
 
 class TowerNode: SKSpriteNode {
+	let type: TowerType
+	let ratio: CGFloat
+	
 	init(type: TowerType) {
-		//let shape = SKShapeNode(path: type.path, centered: true)
+		self.type = type
+		ratio = type.texture.size().height / type.texture.size().width
+		let height = type.radius * ratio
 		
-		super.init(texture: nil, color: #colorLiteral(red: 0.1288586855, green: 0, blue: 0.4869538546, alpha: 1), size: CGSize(width: type.radius, height: type.radius))
+		super.init(texture: type.texture, color: .clear(), size: CGSize(width: type.radius, height: height))
+	}
+	
+	override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+		self.type = TowerType.triangle
+		ratio = type.texture.size().height / type.texture.size().width
+		super.init(texture: texture, color: color, size: size)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		let node = aDecoder.decodeObject() as! TowerNode
+		type = node.type
+		ratio = type.texture.size().height / type.texture.size().width
+		super.init(coder: aDecoder)
 	}
 }
