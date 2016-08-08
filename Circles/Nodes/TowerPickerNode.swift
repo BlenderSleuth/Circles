@@ -8,10 +8,6 @@
 
 import SpriteKit
 
-struct Textures {
-	static let sharedInstance = Textures()
-}
-
 class TowerPickerNode: SKSpriteNode {
 	
 	let nodeRatio: CGFloat
@@ -45,37 +41,33 @@ class TowerPickerNode: SKSpriteNode {
 	}
 	
 	func setuptowers() {
-		for (_, type) in TowerType.allTowers.enumerated() {
-			addChild(setTowerPosition(type: type))
+		for type in TowerType.allTowers {
+			addChild(createTowerOfType(type))
 		}
 	}
 	
-	func setTowerPosition(type: TowerType) -> TowerNode {
+	func createTowerOfType(_ type: TowerType) -> TowerNode {
 		let i = TowerType.allTowers.index(of: type)!
 		let tower = TowerNode(type: type)
-		
-		
 		
 		let posX: CGFloat
 		let posY: CGFloat
 		
 		if type != .rainbowDodecagon {
-			
+			tower.size = CGSize(width: towerWidth, height: towerWidth*tower.ratio)
 			if nodeRatio < 6 {
 				let column = Int((CGFloat(i))/2)
 				
 				if i % 2 == 0 {
 					//Top row
-					posY = size.height - marginY
-					tower.anchorPoint = CGPoint(x: 0, y: 1)
+					posY = size.height - marginY - tower.size.height / 2
 				} else {
 					//Bottom row
-					posY = marginY
-					tower.anchorPoint = CGPoint(x: 0, y: 0)
+					posY = marginY + tower.size.height/2
 				}
-				posX = marginX + (CGFloat(column) * gap) + (CGFloat(column) * towerWidth)
 				
-				tower.size = CGSize(width: towerWidth, height: towerWidth*tower.ratio)
+				posX = marginX + (CGFloat(column) * gap) + (CGFloat(column) * towerWidth) + tower.size.width/2
+				
 			} else {
 				let column = Int((CGFloat(i)))
 				
@@ -84,29 +76,26 @@ class TowerPickerNode: SKSpriteNode {
 				
 				//Top row
 				posY = size.height / 2
-				tower.anchorPoint = CGPoint(x: 0, y: 0.5)
-				
-				posX = marginX + (CGFloat(column) * gap) + (CGFloat(column) * towerWidth)
-				
 				tower.size = CGSize(width: towerWidth, height: towerWidth*tower.ratio)
+				
+				posX = (marginX + (CGFloat(column) * gap) + (CGFloat(column) * towerWidth)) + tower.size.width/2
 			}
-
 		} else {
-			posY = size.height / 2
-			posX = size.width - marginX*0.5
-			tower.anchorPoint = CGPoint(x: 1, y: 0.5)
+			posY = size.height / 2			//account for anchor point
+			posX = (size.width - marginX*0.5) - tower.size.width / 2
 			tower.size = CGSize(width: towerWidth*2, height: towerWidth*2*tower.ratio)
 		}
 		
 		tower.position = self.scene!.convert(CGPoint(x: posX, y: posY), to: self)
 		return tower
 	}
-	
-	func getTowerForPosition(position: CGPoint) -> TowerNode? {
+	func getTowerForPosition(_ position: CGPoint) -> TowerNode? {
 		let nodes = self.nodes(at: position)
 		for node in nodes {
-			if node is TowerNode {
-				return (node.copy() as! TowerNode)
+			if let tower = node as? TowerNode {
+				tower.removeFromParent()
+				replenishTower(type: tower.type)
+				return tower
 			}
 		}
 		return nil
@@ -118,15 +107,15 @@ class TowerPickerNode: SKSpriteNode {
 	}
 	
 	func replenishTower(type: TowerType) {
-		let tower = setTowerPosition(type: type)
-		tower.setScale(0)
+		let tower = createTowerOfType(type)
+		tower.setScale(0.1)
 		
-		let spinAction = SKAction.rotate(byAngle: 360, duration: 1)
-		let popAction = SKAction.scale(by: 1, duration: 1)
+		let amtToRotate = CGFloat(360).degreesToRadians()
+		let spinAction = SKAction.rotate(byAngle: amtToRotate, duration: 0.3)
+		let popAction = SKAction.scale(by: 10, duration: 0.3)
 		let action = SKAction.group([spinAction, popAction])
 		
 		addChild(tower)
-		
 		tower.run(action)
 	}
 	

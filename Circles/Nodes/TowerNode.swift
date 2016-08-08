@@ -11,6 +11,7 @@ import SpriteKit
 class TowerNode: SKSpriteNode {
 	let type: TowerType
 	let ratio: CGFloat
+	var towerEntity: TowerEntity?
 	
 	init(type: TowerType) {
 		self.type = type
@@ -20,16 +21,7 @@ class TowerNode: SKSpriteNode {
 		super.init(texture: type.texture, color: .clear(), size: CGSize(width: type.radius, height: height))
 	}
 	
-	override init(texture: SKTexture?, color: UIColor, size: CGSize) {
-		self.type = TowerType.triangle
-		ratio = type.texture.size().height / type.texture.size().width
-		super.init(texture: texture, color: color, size: size)
-	}
-	
 	required init?(coder aDecoder: NSCoder) {
-		let node = aDecoder.decodeObject() as! TowerNode
-		type = node.type
-		ratio = type.texture.size().height / type.texture.size().width
-		super.init(coder: aDecoder)
+		fatalError("init(coder:) has not been implemented")
 	}
 }

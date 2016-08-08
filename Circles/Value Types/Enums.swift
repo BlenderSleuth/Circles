@@ -41,6 +41,6 @@ func createPolygonWithSides(_ numberOfSides: Int, radius: CGFloat) -> CGPath {
 enum LayerZposition: CGFloat {
 	case background = -5
 	case circleLayer = 0
-	case sprites = 5
+	case towerLayer = 5
 	case UI = 10
 }

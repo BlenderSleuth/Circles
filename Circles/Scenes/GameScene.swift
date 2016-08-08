@@ -74,9 +74,7 @@ class GameScene: SKScene {
         circle.setCircleOnPath(mapNode.map.path)
     }
 	
-	func createTowerAt(point: CGPoint, towerNode: TowerNode) {
-		print("create tower node")
-		
+	func createTower(_ towerNode: TowerNode) {
 		let towerEntity = TowerEntity(node: towerNode)
 		addChild(towerEntity.spriteComponent.node)
 		selectedTower = towerEntity
@@ -85,26 +83,38 @@ class GameScene: SKScene {
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		for touch in touches {
 			let location = touch.location(in: self)
-			let pickerLocation = self.convert(location, to: towerPickerNode)
-			if let tower = towerPickerNode.getTowerForPosition(position: pickerLocation) {
-				createTowerAt(point: location, towerNode: tower)
+			let pickerLocation = convert(location, to: towerPickerNode)
+			
+			if let tower = selectedTower {
+				if !mapNode.testForValidPoint(tower.spriteComponent.node.position) {
+					return
+				}
+			} else {
+				if let tower = towerPickerNode.getTowerForPosition(pickerLocation) {
+					tower.position = location
+					createTower(tower)
+				}
 			}
 		}
 	}
+	
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-		print("touches moves")
 		for touch in touches {
 			let location = touch.location(in: self)
-			if let selectedTower = selectedTower {
-				selectedTower.spriteComponent.node.position = location
+			selectedTower?.spriteComponent.node.position = location
+		}
+	}
+	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		for _ in touches {
+			if let tower = selectedTower {
+				let point = convert(tower.spriteComponent.node.position, to: mapNode.towerLayer)
+				if !mapNode.testForValidPoint(point) {
+					return
+				} else {
+					selectedTower = nil
+				}
 			}
 		}
 	}
 }
-
-
-
-
-
-
-

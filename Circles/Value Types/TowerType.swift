@@ -7,6 +7,17 @@
 //
 
 import SpriteKit
+let towerTextures: [TowerType: SKTexture] =
+	 [.triangle:	SKTexture(imageNamed:	"Triangle1"),
+	  .diamond:		SKTexture(imageNamed:	"Diamond1"),
+	//No textures yet
+	//.pentagon:	"Pentagon1",
+	//.hexagon:		"Hexagon1",
+	//.heptagon:	"Heptagon1",
+	//.octagon:		"Octogon1",
+	//.nonagon:		"Nonagon1",
+	//.decagon:		"Decagon1",
+	  .rainbowDodecagon: SKTexture(imageNamed:	"RainbowDodecagon1")]
 
 enum TowerType: Int {
 	case triangle = 3
@@ -48,20 +59,26 @@ enum TowerType: Int {
 	}
 	
 	var texture: SKTexture {
-		let imageName: String
-		switch self {
-		case .triangle:
-			imageName = "Triangle1"
-		case .diamond:
-			imageName = "Diamond1"
-		case .rainbowDodecagon:
-			imageName = "RainbowDodecagon1"
-		default:
-			imageName = "Diamond1"
+		if let name = towerTextures[self] {
+			return name
+		} else {
+			return towerTextures[.triangle]!
 		}
 		
-		return SKTexture(imageNamed: imageName)
 	}
+	
+	static func getTypeForTexture(texture: SKTexture?) -> TowerType? {
+		if let texture = texture {
+			let type = towerTextures.filter {
+				$0.1 == texture
+				}.map {
+					$0.0
+			}
+			return type.first
+		}
+		return nil
+	}
+	
 	static var allTowers: [TowerType] {
 		return [.triangle, .diamond, .pentagon, .hexagon, .heptagon, .octagon, .nonagon, .decagon, .rainbowDodecagon]
 	}

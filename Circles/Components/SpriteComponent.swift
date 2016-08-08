@@ -10,11 +10,10 @@ import SpriteKit
 import GameplayKit
 
 class SpriteComponent: GKComponent {
-    var node: SKSpriteNode!
+    let node: SKSpriteNode
     
 	init(node: SKSpriteNode) {
 		self.node = node
-        node.zPosition = LayerZposition.sprites.rawValue
         super.init()
     }
 

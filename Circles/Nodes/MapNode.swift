@@ -13,9 +13,12 @@ class MapNode: SKSpriteNode {
     
     let circleLayer: SKSpriteNode
     let backgroundLayer: SKSpriteNode
+	let towerLayer: SKSpriteNode
     
     let margin: CGFloat
 	let pathWidth: CGFloat
+	
+	var towers = [TowerEntity]()
 	
 	private let pathFraction: CGFloat = 9
     
@@ -31,6 +34,7 @@ class MapNode: SKSpriteNode {
         
         backgroundLayer = SKSpriteNode(texture: texture, size: imageSize)
         circleLayer = SKSpriteNode(color: .clear(), size: imageSize)
+		towerLayer = SKSpriteNode(texture: SKTexture(imageNamed: "Level1MapMask"), size: imageSize)
         
         margin = (imageSize.height - mapSize.height)/2
         map = Map(level: level, mapSize: mapSize)
@@ -46,7 +50,7 @@ class MapNode: SKSpriteNode {
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-    
+	
     func setupLayers() {
         let backgroundCropNode = SKCropNode()
         backgroundCropNode.maskNode = SKSpriteNode(color: .black(), size: size)
@@ -56,11 +60,25 @@ class MapNode: SKSpriteNode {
         circleLayer.zPosition = LayerZposition.circleLayer.rawValue
         circleLayer.anchorPoint = CGPoint(x: 0, y: 0)
         circleLayer.position = CGPoint(x: -size.width/2, y: -size.height / 2 - margin)
-        
+		
+		towerLayer.zPosition = LayerZposition.towerLayer.rawValue
+		towerLayer.anchorPoint = CGPoint(x: 0, y: 0)
+		towerLayer.position = CGPoint(x: -size.width/2, y: -size.height / 2 - margin)
+		
         backgroundCropNode.addChild(backgroundLayer)
         backgroundCropNode.addChild(circleLayer)
+		backgroundCropNode.addChild(towerLayer)
         addChild(backgroundCropNode)
     }
+
+	func testForValidPoint(_ point: CGPoint) -> Bool {
+		//Stub
+		return true
+	}
+	
+	func setDownTower(tower: TowerEntity) {
+		self.addChild(tower.spriteComponent.node)
+	}
 }
 
 class Map {
