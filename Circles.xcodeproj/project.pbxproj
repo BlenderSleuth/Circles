@@ -13,11 +13,11 @@
 		382A77DE1CE862B0008EC60F /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DD1CE862B0008EC60F /* WinViewController.swift */; };
 		382A77E01CE86310008EC60F /* CirclesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */; };
 		38480A651D30999100549F96 /* TowerPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38480A641D30999100549F96 /* TowerPickerNode.swift */; };
-		384917FA1D58926900350D6E /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384917F91D58926900350D6E /* GameState.swift */; };
-		384917FE1D5893ED00350D6E /* TowerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384917FD1D5893ED00350D6E /* TowerState.swift */; };
 		384918001D5894F800350D6E /* TowerPlacingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384917FF1D5894F800350D6E /* TowerPlacingState.swift */; };
-		384918021D58951C00350D6E /* GamePausedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384918011D58951C00350D6E /* GamePausedState.swift */; };
+		384918021D58951C00350D6E /* GameStartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384918011D58951C00350D6E /* GameStartState.swift */; };
 		38496A611CEDDDBD001C11FE /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38496A601CEDDDBD001C11FE /* SliderViewController.swift */; };
+		3853D4D71D601FF6005D0DC1 /* GameTowerPlaceState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853D4D61D601FF6005D0DC1 /* GameTowerPlaceState.swift */; };
+		3853D4D91D602003005D0DC1 /* GameWaveState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3853D4D81D602003005D0DC1 /* GameWaveState.swift */; };
 		38670FB21CEDBF8400D5F16C /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA61CEDBF8300D5F16C /* CGFloat+Extensions.swift */; };
 		38670FB31CEDBF8400D5F16C /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA71CEDBF8300D5F16C /* CGPoint+Extensions.swift */; };
 		38670FB41CEDBF8400D5F16C /* CGVector+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38670FA81CEDBF8300D5F16C /* CGVector+Extensions.swift */; };
@@ -60,11 +60,11 @@
 		382A77DD1CE862B0008EC60F /* WinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		382A77DF1CE86310008EC60F /* CirclesNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CirclesNavigationController.swift; sourceTree = "<group>"; };
 		38480A641D30999100549F96 /* TowerPickerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerPickerNode.swift; sourceTree = "<group>"; };
-		384917F91D58926900350D6E /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		384917FD1D5893ED00350D6E /* TowerState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerState.swift; sourceTree = "<group>"; };
 		384917FF1D5894F800350D6E /* TowerPlacingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TowerPlacingState.swift; sourceTree = "<group>"; };
-		384918011D58951C00350D6E /* GamePausedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePausedState.swift; sourceTree = "<group>"; };
+		384918011D58951C00350D6E /* GameStartState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStartState.swift; sourceTree = "<group>"; };
 		38496A601CEDDDBD001C11FE /* SliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
+		3853D4D61D601FF6005D0DC1 /* GameTowerPlaceState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTowerPlaceState.swift; sourceTree = "<group>"; };
+		3853D4D81D602003005D0DC1 /* GameWaveState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameWaveState.swift; sourceTree = "<group>"; };
 		38670FA61CEDBF8300D5F16C /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		38670FA71CEDBF8300D5F16C /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		38670FA81CEDBF8300D5F16C /* CGVector+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGVector+Extensions.swift"; sourceTree = "<group>"; };
@@ -149,28 +149,28 @@
 		384917F81D58920A00350D6E /* StateMachines */ = {
 			isa = PBXGroup;
 			children = (
-				384917FC1D5893CE00350D6E /* TowerState */,
-				384917FB1D58928300350D6E /* GameState */,
+				384917FC1D5893CE00350D6E /* TowerStates */,
+				384917FB1D58928300350D6E /* GameStates */,
 			);
 			path = StateMachines;
 			sourceTree = "<group>";
 		};
-		384917FB1D58928300350D6E /* GameState */ = {
+		384917FB1D58928300350D6E /* GameStates */ = {
 			isa = PBXGroup;
 			children = (
-				384917F91D58926900350D6E /* GameState.swift */,
-				384918011D58951C00350D6E /* GamePausedState.swift */,
+				384918011D58951C00350D6E /* GameStartState.swift */,
+				3853D4D61D601FF6005D0DC1 /* GameTowerPlaceState.swift */,
+				3853D4D81D602003005D0DC1 /* GameWaveState.swift */,
 			);
-			path = GameState;
+			path = GameStates;
 			sourceTree = "<group>";
 		};
-		384917FC1D5893CE00350D6E /* TowerState */ = {
+		384917FC1D5893CE00350D6E /* TowerStates */ = {
 			isa = PBXGroup;
 			children = (
-				384917FD1D5893ED00350D6E /* TowerState.swift */,
 				384917FF1D5894F800350D6E /* TowerPlacingState.swift */,
 			);
-			path = TowerState;
+			path = TowerStates;
 			sourceTree = "<group>";
 		};
 		38670FA51CEDBF8300D5F16C /* SKTUtils */ = {
@@ -225,12 +225,12 @@
 		38E7517C1CE830C50087682E /* Circles */ = {
 			isa = PBXGroup;
 			children = (
-				384917F81D58920A00350D6E /* StateMachines */,
 				38670FA51CEDBF8300D5F16C /* SKTUtils */,
 				382A77D61CE86234008EC60F /* ViewControllers */,
 				FCC3A9FA1D18D495002A47D1 /* Views */,
 				FCC3A9FD1D18D9E9002A47D1 /* Entites */,
 				FCC424691D19297E00B5DB20 /* Components */,
+				384917F81D58920A00350D6E /* StateMachines */,
 				382A77E11CE86322008EC60F /* Nodes */,
 				38BB01151D32101500C06F05 /* ValueTypes */,
 				382A77D51CE84E3C008EC60F /* Scenes */,
@@ -355,9 +355,10 @@
 				38670FBD1CEDBF8400D5F16C /* Vector3.swift in Sources */,
 				38670FB71CEDBF8400D5F16C /* SKAction+SpecialEffects.swift in Sources */,
 				38BB011B1D32101500C06F05 /* CircleType.swift in Sources */,
+				3853D4D71D601FF6005D0DC1 /* GameTowerPlaceState.swift in Sources */,
 				FCC4246B1D1929CC00B5DB20 /* SpriteComponent.swift in Sources */,
 				38BB01251D32125D00C06F05 /* TowerNode.swift in Sources */,
-				384918021D58951C00350D6E /* GamePausedState.swift in Sources */,
+				384918021D58951C00350D6E /* GameStartState.swift in Sources */,
 				38670FBB1CEDBF8400D5F16C /* SKTEffects.swift in Sources */,
 				38480A651D30999100549F96 /* TowerPickerNode.swift in Sources */,
 				FCC424681D1916B100B5DB20 /* CGSize+Extensions.swift in Sources */,
@@ -370,8 +371,6 @@
 				384918001D5894F800350D6E /* TowerPlacingState.swift in Sources */,
 				382A77DC1CE862A7008EC60F /* LoseViewController.swift in Sources */,
 				38E751941CE846390087682E /* TowerUpgradeNode.swift in Sources */,
-				384917FA1D58926900350D6E /* GameState.swift in Sources */,
-				384917FE1D5893ED00350D6E /* TowerState.swift in Sources */,
 				FCC3A9FC1D18D8C9002A47D1 /* CircleEntity.swift in Sources */,
 				FC97EB3E1D19ECF700790E08 /* MapNode.swift in Sources */,
 				38670FB61CEDBF8400D5F16C /* SKAction+Extensions.swift in Sources */,
@@ -389,6 +388,7 @@
 				38BB011D1D32101500C06F05 /* Level.swift in Sources */,
 				38670FB41CEDBF8400D5F16C /* CGVector+Extensions.swift in Sources */,
 				38670FB81CEDBF8400D5F16C /* SKColor+Extensions.swift in Sources */,
+				3853D4D91D602003005D0DC1 /* GameWaveState.swift in Sources */,
 				38BB011C1D32101500C06F05 /* Enums.swift in Sources */,
 				38670FBA1CEDBF8400D5F16C /* SKTAudio.swift in Sources */,
 				382A77E01CE86310008EC60F /* CirclesNavigationController.swift in Sources */,

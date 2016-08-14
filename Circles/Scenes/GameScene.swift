@@ -21,6 +21,12 @@ class GameScene: SKScene {
 	var selectedTower: TowerEntity?
     
     let spriteSystem = GKComponentSystem(componentClass: SpriteComponent.self)
+	
+	lazy var gameState: GKStateMachine = GKStateMachine(states: [
+		GameStartState(scene: self),
+		GameTowerPlaceState(scene: self),
+		GameWaveState(scene: self)
+		])
     
     init(size: CGSize, level: Level) {
         self.level = level
@@ -34,6 +40,8 @@ class GameScene: SKScene {
 		setupMapNode()
         setupTowerPickerNode()
         //setupTowerUpgradeNode()
+		
+		gameState.enterState(GameStartState.self)
         
         startWave()
     }
@@ -91,6 +99,7 @@ class GameScene: SKScene {
 				}
 			} else {
 				if let tower = towerPickerNode.getTowerForPosition(pickerLocation) {
+					gameState.enterState(GameTowerPlaceState.self)
 					tower.position = location
 					createTower(tower)
 				}
@@ -113,6 +122,7 @@ class GameScene: SKScene {
 					return
 				} else {
 					selectedTower = nil
+					gameState.enterState(GameWaveState.self)
 				}
 			}
 		}
