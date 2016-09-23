@@ -20,7 +20,7 @@ class MapNode: SKSpriteNode {
 	
 	var towers = [TowerEntity]()
 	
-	private let pathFraction: CGFloat = 9
+	fileprivate let pathFraction: CGFloat = 9
     
     init(level: Level, size: CGSize, aspectRatio: CGFloat) {
         let texture = SKTexture(image: level.mapImage)
@@ -33,7 +33,7 @@ class MapNode: SKSpriteNode {
         let imageSize = CGSize(width: imageWidth, height: imageHeight)
         
         backgroundLayer = SKSpriteNode(texture: texture, size: imageSize)
-        circleLayer = SKSpriteNode(color: .clear(), size: imageSize)
+        circleLayer = SKSpriteNode(color: .clear, size: imageSize)
 		towerLayer = SKSpriteNode(texture: SKTexture(imageNamed: "Level1MapMask"), size: imageSize)
         
         margin = (imageSize.height - mapSize.height)/2
@@ -41,7 +41,7 @@ class MapNode: SKSpriteNode {
 		
 		pathWidth = mapSize.height / pathFraction
 		
-        super.init(texture: nil, color: .orange(), size: mapSize)
+        super.init(texture: nil, color: .orange, size: mapSize)
         position = CGPoint(x: size.width / 2, y: size.height - mapSize.height / 2)
         
         setupLayers()
@@ -53,7 +53,7 @@ class MapNode: SKSpriteNode {
 	
     func setupLayers() {
         let backgroundCropNode = SKCropNode()
-        backgroundCropNode.maskNode = SKSpriteNode(color: .black(), size: size)
+        backgroundCropNode.maskNode = SKSpriteNode(color: .black, size: size)
         
         backgroundLayer.zPosition = LayerZposition.background.rawValue
         
@@ -76,7 +76,7 @@ class MapNode: SKSpriteNode {
 		return true
 	}
 	
-	func setDownTower(tower: TowerEntity) {
+	func setDownTower(_ tower: TowerEntity) {
 		self.addChild(tower.spriteComponent.node)
 	}
 }
@@ -93,7 +93,7 @@ class Map {
         points = level.pathPoints
         startPosition = level.pathPoints[0]
         
-        let path = createPath(mapSize: mapSize)
+        let path = createPath(mapSize)
         self.path = path
     }
     convenience init() {
@@ -101,24 +101,24 @@ class Map {
         self.init(level: Levels.sharedInstance.levels[0], mapSize: CGSize.zero)
     }
     
-    func createPath(mapSize: CGSize) -> CGPath {
+    func createPath(_ mapSize: CGSize) -> CGPath {
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 1024, height: 576), false, 0)
         
         let context = UIGraphicsGetCurrentContext()
         
         context?.beginPath()
-        context?.moveTo(x: startPosition.x, y: startPosition.y)
-        context?.addLines(between: UnsafePointer(points), count: points.count)
+        context?.move(to: startPosition)
+        context?.addLines(between: points)
         
         //translating based on device
         let deltaYTrans: CGFloat = startPosition.y
-        context?.translate(x: 0, y: -deltaYTrans)
+        context?.translateBy(x: 0, y: -deltaYTrans)
         
         //Scaling to device
         let scale: CGFloat = 1024 / mapSize.width
-        context?.scale(x: scale, y: scale)
+        context?.scaleBy(x: scale, y: scale)
         
-        let path = context?.path()!
+        let path = context?.path!
 
         UIGraphicsEndImageContext()
         

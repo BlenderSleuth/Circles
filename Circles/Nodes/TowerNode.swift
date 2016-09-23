@@ -18,7 +18,7 @@ class TowerNode: SKSpriteNode {
 		ratio = type.texture.size().height / type.texture.size().width
 		let height = type.radius * ratio
 		
-		super.init(texture: type.texture, color: .clear(), size: CGSize(width: type.radius, height: height))
+		super.init(texture: type.texture, color: .clear, size: CGSize(width: type.radius, height: height))
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

@@ -13,7 +13,7 @@ class CirclesNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }

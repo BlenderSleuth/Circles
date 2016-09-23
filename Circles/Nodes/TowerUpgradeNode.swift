@@ -15,7 +15,7 @@ class TowerUpgradeNode: SKSpriteNode {
         let height = sceneSize.height - (sceneSize.height / aspectRatio)
         let nodeSize = CGSize(width: sceneSize.width, height: height)
         
-        super.init(texture: nil, color: .orange(), size: nodeSize)
+        super.init(texture: nil, color: .orange, size: nodeSize)
         
         self.position = CGPoint(x: sceneSize.width, y: 0)
         anchorPoint = CGPoint(x: 0.5, y: 0)

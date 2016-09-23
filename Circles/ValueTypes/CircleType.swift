@@ -50,11 +50,11 @@ enum CircleType: Int {
 	var color: UIColor {
 		switch self {
 		case .green:
-			return .green()
+			return .green
 		case .blue:
-			return .blue()
+			return .blue
 		case .purple:
-			return .purple()
+			return .purple
 		}
 	}
 	

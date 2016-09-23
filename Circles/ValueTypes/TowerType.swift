@@ -31,7 +31,7 @@ enum TowerType: Int {
 	case rainbowDodecagon = 20
 	
 	var color: UIColor {
-		return UIColor.red()
+		return UIColor.red
 	}
 	
 	var radius: CGFloat {
@@ -67,7 +67,7 @@ enum TowerType: Int {
 		
 	}
 	
-	static func getTypeForTexture(texture: SKTexture?) -> TowerType? {
+	static func getTypeForTexture(_ texture: SKTexture?) -> TowerType? {
 		if let texture = texture {
 			let type = towerTextures.filter {
 				$0.1 == texture

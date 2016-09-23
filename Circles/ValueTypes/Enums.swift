@@ -20,7 +20,7 @@ This method will generate a closed CGPath polygon from a given number of sides a
 */
 func createPolygonWithSides(_ numberOfSides: Int, radius: CGFloat) -> CGPath {
 	let path = CGMutablePath()
-	path.moveTo(nil, x: 0, y: 0)
+    path.move(to: CGPoint.zero)
 	
 	let oneSegment = π * 2 / CGFloat(numberOfSides)
 	
@@ -33,7 +33,7 @@ func createPolygonWithSides(_ numberOfSides: Int, radius: CGFloat) -> CGPath {
 		points.append(point)
 	}
 	
-	path.addLines(nil, between: UnsafePointer(points), count: points.count)
+    path.addLines(between: points)
 	path.closeSubpath()
 	return path
 }
@@ -42,5 +42,5 @@ enum LayerZposition: CGFloat {
 	case background = -5
 	case circleLayer = 0
 	case towerLayer = 5
-	case UI = 10
+	case ui = 10
 }

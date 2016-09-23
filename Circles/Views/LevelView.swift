@@ -22,7 +22,7 @@ class LevelView: UIView {
         levelLabel = UILabel()
         super.init(frame: frame)
         
-        backgroundColor = .black()
+        backgroundColor = .black
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LevelView.didTap(_:)))
         
@@ -44,14 +44,14 @@ class LevelView: UIView {
         
         levelLabel.text = level.name
         
-        let model = UIDevice.current().model
+        let model = UIDevice.current.model
         if (model == "iPhone") || (model == "iPod Touch") {
             levelLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 34)
         } else {
             levelLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 58)
         }
         
-        levelLabel.textColor = .white()
+        levelLabel.textColor = .white
         levelLabel.textAlignment = NSTextAlignment.center
         levelLabel.frame = CGRect(x: 0, y: margin, width: bounds.width, height: bounds.height / 6)
         addSubview(levelLabel)

@@ -12,7 +12,7 @@ class LevelSelectViewController: UIViewController {
     
     @IBOutlet weak var scrollingImage: ScrollingImage!
     
-    private var i = 0
+    fileprivate var i = 0
     override func viewDidLayoutSubviews() {
         i += 1
         if i == 1 {
@@ -49,7 +49,7 @@ class ScrollingImage: UIView {
     }
     
     func scroll() {
-        func animate(_ amountToMove: CGFloat, view: UIView, completion: (Bool) -> ()) {
+        func animate(_ amountToMove: CGFloat, view: UIView, completion: @escaping (Bool) -> ()) {
             let pointsPerSec: CGFloat = 25
             
             let seconds = TimeInterval(abs(amountToMove) / pointsPerSec)

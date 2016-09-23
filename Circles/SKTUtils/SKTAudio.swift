@@ -26,16 +26,16 @@ import AVFoundation
  * Audio player that uses AVFoundation to play looping background music and
  * short sound effects. For when using SKActions just isn't good enough.
  */
-public class SKTAudio {
-  public var backgroundMusicPlayer: AVAudioPlayer?
-  public var soundEffectPlayer: AVAudioPlayer?
+open class SKTAudio {
+  open var backgroundMusicPlayer: AVAudioPlayer?
+  open var soundEffectPlayer: AVAudioPlayer?
 
-  public class func sharedInstance() -> SKTAudio {
+  open class func sharedInstance() -> SKTAudio {
     return SKTAudioInstance
   }
 
-  public func playBackgroundMusic(_ filename: String) {
-    let url = Bundle.main.urlForResource(filename, withExtension: nil)
+  open func playBackgroundMusic(_ filename: String) {
+    let url = Bundle.main.url(forResource: filename, withExtension: nil)
     if (url == nil) {
       print("Could not find file: \(filename)")
       return
@@ -57,7 +57,7 @@ public class SKTAudio {
     }
   }
 
-  public func pauseBackgroundMusic() {
+  open func pauseBackgroundMusic() {
     if let player = backgroundMusicPlayer {
       if player.isPlaying {
         player.pause()
@@ -65,7 +65,7 @@ public class SKTAudio {
     }
   }
 
-  public func resumeBackgroundMusic() {
+  open func resumeBackgroundMusic() {
     if let player = backgroundMusicPlayer {
       if !player.isPlaying {
         player.play()
@@ -73,8 +73,8 @@ public class SKTAudio {
     }
   }
 
-  public func playSoundEffect(_ filename: String) {
-    let url = Bundle.main.urlForResource(filename, withExtension: nil)
+  open func playSoundEffect(_ filename: String) {
+    let url = Bundle.main.url(forResource: filename, withExtension: nil)
     if (url == nil) {
       print("Could not find file: \(filename)")
       return

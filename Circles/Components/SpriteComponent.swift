@@ -21,6 +21,6 @@ class SpriteComponent: GKComponent {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func update(withDeltaTime seconds: TimeInterval) {
+    override func update(deltaTime seconds: TimeInterval) {
     }
 }

@@ -15,7 +15,7 @@ class CircleEntity: GKEntity {
     init(circleType type: CircleType, startPosition position: CGPoint, mapNode: MapNode) {
 		let radius = mapNode.pathWidth / type.radiusDivisor
 		
-		let node = SKSpriteNode(texture: type.texture, color: .clear(), size: CGSize(width: radius*2, height: radius*2))
+		let node = SKSpriteNode(texture: type.texture, color: .clear, size: CGSize(width: radius*2, height: radius*2))
 		
 		self.spriteComponent = SpriteComponent(node: node)
 		
@@ -36,12 +36,12 @@ class CircleEntity: GKEntity {
 		
         let action = SKAction.sequence([
             SKAction.follow(path, asOffset: false, orientToPath: false, speed: speed),
-            SKAction.run {self.removeCircle(dead: false)}
+            SKAction.run {self.removeCircle(false)}
             ])
         
         spriteComponent.node.run(action)
     }
-    func removeCircle(dead: Bool) {
+    func removeCircle(_ dead: Bool) {
         if dead {
             print("Dead")
             spriteComponent.node.removeAllActions()

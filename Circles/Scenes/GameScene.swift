@@ -41,7 +41,7 @@ class GameScene: SKScene {
         setupTowerPickerNode()
         //setupTowerUpgradeNode()
 		
-		gameState.enterState(GameStartState.self)
+		gameState.enter(GameStartState.self)
         
         startWave()
     }
@@ -74,7 +74,7 @@ class GameScene: SKScene {
 		let entity = CircleEntity(circleType: type, startPosition: position, mapNode: mapNode)
 		
         entities.append(entity)
-        spriteSystem.addComponent(with: entity)
+        spriteSystem.addComponent(foundIn: entity)
         mapNode.circleLayer.addChild(entity.spriteComponent.node)
     }
     
@@ -99,7 +99,7 @@ class GameScene: SKScene {
 				}
 			} else {
 				if let tower = towerPickerNode.getTowerForPosition(pickerLocation) {
-					gameState.enterState(GameTowerPlaceState.self)
+					gameState.enter(GameTowerPlaceState.self)
 					tower.position = location
 					createTower(tower)
 				}
@@ -122,7 +122,7 @@ class GameScene: SKScene {
 					return
 				} else {
 					selectedTower = nil
-					gameState.enterState(GameWaveState.self)
+					gameState.enter(GameWaveState.self)
 				}
 			}
 		}

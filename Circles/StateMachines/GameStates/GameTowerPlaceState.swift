@@ -17,7 +17,7 @@ class GameTowerPlaceState: GKState {
 		super.init()
 	}
 	
-	override func didEnter(withPreviousState previousState: GKState?) {
+	override func didEnter(from previousState: GKState?) {
 		print("tower state")
 	}
 	

@@ -15,7 +15,7 @@ class SliderViewController: UIViewController, LevelTapDelegate, UIScrollViewDele
     override func viewWillLayoutSubviews() {
         let sliderView = SliderView()
         scrollView.addSubview(sliderView)
-        scrollView.contentSize = sliderView.setupLevels(bounds: view.bounds).size
+        scrollView.contentSize = sliderView.setupLevels(view.bounds).size
         
         view.layer.borderWidth = 1
         view.layer.frame = CGRect(x: -1, y: 0, width: view.frame.width + 2, height: view.frame.height)
@@ -37,7 +37,7 @@ class SliderViewController: UIViewController, LevelTapDelegate, UIScrollViewDele
 
 class SliderView: UIView {
     
-    func setupLevels(bounds: CGRect) -> CGRect {
+    func setupLevels(_ bounds: CGRect) -> CGRect {
         //constants
         let margin = bounds.width / 100
         let height = bounds.height - margin * 2

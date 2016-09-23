@@ -34,7 +34,7 @@ class TowerPickerNode: SKSpriteNode {
 		let numberOfGaps = CGFloat((TowerType.allTowers.count-1)/2)
 		towerWidth = ((nodeSize.width - marginX*2) - (gap*numberOfGaps)) / 6
 		
-		super.init(texture: nil, color: .purple(), size: nodeSize)
+		super.init(texture: nil, color: .purple, size: nodeSize)
 		
 		self.position = CGPoint(x: sceneSize.width/2, y: 0)
 		anchorPoint = CGPoint(x: 0.5, y: 0)
@@ -94,7 +94,7 @@ class TowerPickerNode: SKSpriteNode {
 		for node in nodes {
 			if let tower = node as? TowerNode {
 				tower.removeFromParent()
-				replenishTower(type: tower.type)
+				replenishTower(tower.type)
 				return tower
 			}
 		}
@@ -106,7 +106,7 @@ class TowerPickerNode: SKSpriteNode {
 		//let lines = SKSpriteNode
 	}
 	
-	func replenishTower(type: TowerType) {
+	func replenishTower(_ type: TowerType) {
 		let tower = createTowerOfType(type)
 		tower.setScale(0.1)
 		
